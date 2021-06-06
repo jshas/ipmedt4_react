@@ -4,6 +4,11 @@ import "./UserCard.css";
 
 
 class UserCard extends React.Component {
+
+  OnUserButtonClicked = () => {
+    this.props.UserButtonClicked(this.props.id);
+  }
+
   render(){
     return (
       <section className="userCard">
@@ -16,8 +21,8 @@ class UserCard extends React.Component {
         <h1 className="userCard__name">{this.props.username || "Geen Naam"}</h1>
         <h2 className="userCard__rol">{this.props.userrole || "Geen Rol"}</h2>
 
-        <section class="userCard__btnSection">
-          <button className="userCard__btnSection__button">Overzicht</button>
+        <section className="userCard__btnSection">
+          <button className="userCard__btnSection__button" onClick={this.OnUserButtonClicked}>Overzicht</button>
         </section>
 
       </section>
