@@ -6,6 +6,7 @@
   background-color: #3C4648;
   border-radius: 2rem;
   box-shadow: 0.5rem 0.5rem 0.8rem;
+  font-family: 'Roboto Slab', serif;
 }
 
 .userCard__fig{
@@ -33,6 +34,7 @@
   align-items: center;
   justify-content: center;
   color: #FFFFFF;
+  font-weight: 400;
 }
 
 .userCard__rol{
@@ -45,6 +47,7 @@
   align-items: center;
   justify-content: center;
   color: #FFFFFF;
+  font-weight: 400;
 }
 
 .userCard__btnSection{
@@ -62,6 +65,7 @@
   /* color: #FFFFFF; */
   cursor: pointer;
   box-shadow: 0.1rem 0.3rem 0.3rem;
+  font-family: 'Roboto Slab', serif;
 }
 
 .userCard__btnSection__button:hover{

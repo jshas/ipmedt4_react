@@ -14,6 +14,9 @@ class App extends React.Component {
   render(){
     return (
       <section>
+      <style>
+      @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+      </style>
         <UserPage UserButtonClicked={this.UserButtonClicked} />
       </section>
     );
