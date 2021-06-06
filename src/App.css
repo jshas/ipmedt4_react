@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto+Slab&display=swap');
+
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* CSS variabelen. (bijv. h1 {font-family: var(--heading-font-family);} */
+:root {
+  /* Header en body fonts */
+  --heading-font-family: 'Roboto Slab', serif;   
+  --paragraph-font-family: 'Open Sans', sans-serif;
+  /* Font kleuren  */
+  --c-dark-font: #000000;
+  --c-light-font: #FFFFFF;
+  /* Achtergronden kleuren */
+  --c-primary-bg: #F1F1F1;
+  --c-secondary-bg: #000000;
+
+  /* Button kleuren */
+  --c-primary-button: #FFB900;
+  --c-primary-button-hover: #FFD053;
+  --c-secondary-button: #3C4648;   
+  --c-secondary-button-hover: #787D7E;
+  --c-confirmation-button: #009697;
+  --c-confirmation-button-hover: #0CB2B4;
+  --c-cancel-button: #CC0000;
+  --c-cancel-button-hover: #DA4C4C;
+
+
+  /* Kleurenpalet uit de styleguide */
+  --c-black: #000;
+  --c-white: #fff;
+  --c--yellow: #FFB900;           /* Jungheinrichs primaire bedrijfskleur, voor primarire buttons. */ 
+  --c-accent-red: #CC0000;        /* Jungheinrichs accentkleur. */ 
+  --c-green: #009697;
+  --c-dark-grey: #3C4648;
+  --c-light-grey: #F1F1F1;
+}
+
+
