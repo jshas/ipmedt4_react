@@ -9,12 +9,12 @@
 
 /* CSS variabelen. (bijv. h1 {font-family: var(--heading-font-family);} */
 :root {
-  /* Header en body fonts */
+  /* Header en body fonts, font color */
   --heading-font-family: 'Roboto Slab', serif;   
   --paragraph-font-family: 'Open Sans', sans-serif;
-  /* Font kleuren  */
-  --c-dark-font: #000000;
-  --c-light-font: #FFFFFF;
+  --c-light-font: #000000;
+  --c-dark-font: #FFFFFF;
+
   /* Achtergronden kleuren */
   --c-primary-bg: #F1F1F1;
   --c-secondary-bg: #000000;
@@ -39,5 +39,3 @@
   --c-dark-grey: #3C4648;
   --c-light-grey: #F1F1F1;
 }
-
-
