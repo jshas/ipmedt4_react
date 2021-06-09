@@ -9,6 +9,7 @@ import React from "react";
 
 import axios from "axios";
 
+import Sidebar from "./Sidebar";
 import ProductCard from "./ProductCard";
 import "./App.css";
 
@@ -36,7 +37,7 @@ class App extends React.Component {
   }
 
   products = [];
-  
+
   render() {
     this.products = this.state.productList.map((product) => {
       return (
@@ -46,11 +47,14 @@ class App extends React.Component {
       )
     });
     return(
-      <ul className="productGrid">
-        {this.products}
-      </ul>
+      <div>
+        <Sidebar />
+
+        <ul className="productGrid">
+          {this.products}
+        </ul>
+      </div>
     )
 };
 }
 export default App;
-
