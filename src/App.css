@@ -1,17 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto+Slab&display=swap');
 
-*{
-  margin: 0;
+
+* {
   padding: 0;
+  margin: 0;
   box-sizing: border-box;
+}
+
+/* CSS variabelen. (bijv. h1 {font-family: var(--heading-font-family);} */
+:root {
+  /* Header en body fonts, font color */
+  --font-family-heading: 'Roboto Slab', serif;   
+  --font-family-paragraph: 'Open Sans', sans-serif;
+  --c-light-font: #000000;
+  --c-dark-font: #FFFFFF;
+
+  /* Achtergronden kleuren */
+  --c-primary-bg: #F1F1F1;
+  --c-secondary-bg: #000000;
+
+  /* Button kleuren */
+  --c-primary-button: #FFB900;
+  --c-primary-button-hover: #FFD053;
+  --c-secondary-button: #3C4648;   
+  --c-secondary-button-hover: #787D7E;
+  --c-confirmation-button: #009697;
+  --c-confirmation-button-hover: #0CB2B4;
+  --c-cancel-button: #CC0000;
+  --c-cancel-button-hover: #DA4C4C;
+
+
+  /* Kleurenpalet uit de styleguide */
+  --c-black: #000;
+  --c-white: #fff;
+  --c--yellow: #FFB900;           /* Jungheinrichs primaire bedrijfskleur, voor primarire buttons. */ 
+  --c-accent-red: #CC0000;        /* Jungheinrichs accentkleur. */ 
+  --c-green: #009697;
+  --c-dark-grey: #3C4648;
+  --c-light-grey: #F1F1F1;
 }
 
 html{
   font-size: 62.5%;
-  box-sizing: inherit;
 }
 
 body{
-  /* padding: 2rem; */
   font-size: 1.8rem;
-  background-color: #F1F1F1;
+  width: 100%;
+  min-height: 100vh;
+  
+}
+
+h1, h2, h3 {
+  font-family: var(--heading-font-family)
+}
+
+main{
+  width: 100%;
+  height: 50rem;
+  
+}
+
+li {
+  list-style-type: none;
+}
+
+
+.productGrid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 4rem;
+}
+
+@media only screen and (max-width: 1200px){
+  .productCard{
+    width: 75%;
+    margin: 0 auto;
+    align-self: center;
+  }
+  .productGrid{
+    grid-template-columns: 1fr;
+  }
 }
