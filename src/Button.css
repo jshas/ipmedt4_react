@@ -1,0 +1,48 @@
+:root {
+    /* Header en body fonts, font color */
+    --font-family-heading: 'Roboto Slab', serif;   
+    --font-family-paragraph: 'Open Sans', sans-serif;
+    --c-light-font: #000000;
+    --c-dark-font: #FFFFFF;
+  
+    /* Achtergronden kleuren */
+    --c-primary-bg: #F1F1F1;
+    --c-secondary-bg: #000000;
+  
+    /* Button kleuren */
+    --c-primary-button: #FFB900;
+    --c-primary-button-hover: #FFD053;
+    --c-secondary-button: #3C4648;   
+    --c-secondary-button-hover: #787D7E;
+    --c-confirmation-button: #009697;
+    --c-confirmation-button-hover: #0CB2B4;
+    --c-cancel-button: #CC0000;
+    --c-cancel-button-hover: #DA4C4C;
+  
+  
+    /* Kleurenpalet uit de styleguide */
+    --c-black: #000;
+    --c-white: #fff;
+    --c--yellow: #FFB900;           /* Jungheinrichs primaire bedrijfskleur, voor primarire buttons. */ 
+    --c-accent-red: #CC0000;        /* Jungheinrichs accentkleur. */ 
+    --c-green: #009697;
+    --c-dark-grey: #3C4648;
+    --c-light-grey: #F1F1F1;
+  }
+
+  .button {
+      width: 4rem;
+      height: 4rem;
+      font-family: var(--font-family-heading);
+      font-size: 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      background-color: var(--c-primary-button);
+  }
+
+  .button:hover{
+      background-color: var(--c-primary-button-hover);
+
+  }

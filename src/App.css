@@ -10,8 +10,8 @@
 /* CSS variabelen. (bijv. h1 {font-family: var(--heading-font-family);} */
 :root {
   /* Header en body fonts, font color */
-  --heading-font-family: 'Roboto Slab', serif;   
-  --paragraph-font-family: 'Open Sans', sans-serif;
+  --font-family-heading: 'Roboto Slab', serif;   
+  --font-family-paragraph: 'Open Sans', sans-serif;
   --c-light-font: #000000;
   --c-dark-font: #FFFFFF;
 
@@ -38,4 +38,50 @@
   --c-green: #009697;
   --c-dark-grey: #3C4648;
   --c-light-grey: #F1F1F1;
+}
+
+html{
+  font-size: 62.5%;
+}
+
+body{
+  font-size: 1.8rem;
+  width: 100%;
+  min-height: 100vh;
+  
+}
+
+h1, h2, h3 {
+  font-family: var(--heading-font-family)
+}
+
+main{
+  width: 100%;
+  height: 50rem;
+  
+}
+
+li {
+  list-style-type: none;
+}
+
+
+.productGrid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 4rem;
+}
+
+@media only screen and (max-width: 1200px){
+  .productCard{
+    width: 75%;
+    margin: 0 auto;
+    align-self: center;
+  }
+  .productGrid{
+    grid-template-columns: 1fr;
+  }
 }
