@@ -48,10 +48,7 @@ class App extends React.Component {
     });
     return(
       <main>
-        <ul className="productGrid">
-          {this.products}
-        </ul>
-        <Sidebar />
+        <Sidebar className="Sidebar" />
         <ul className="productGrid">
           {this.products}
         </ul>

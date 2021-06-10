@@ -1,6 +1,6 @@
 import React from "react";
 
-import Navcomp from "./Navcomp"
+import Navcomp from "./Navcomp";
 
 import "./Sidebar.css";
 

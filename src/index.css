@@ -7,7 +7,8 @@
   
     /* Achtergronden kleuren */
     --c-primary-bg: #F1F1F1;
-    --c-secondary-bg: #000000;
+    --c-secondary-bg: #2b2d2e;
+    --c-tertiary-bg: #000;
   
     /* Button kleuren */
     --c-primary-button: #FFB900;
@@ -23,7 +24,7 @@
     /* Kleurenpalet uit de styleguide */
     --c-black: #000;
     --c-white: #fff;
-    --c--yellow: #FFB900;           /* Jungheinrichs primaire bedrijfskleur, voor primarire buttons. */ 
+    --c-yellow: #FFB900;           /* Jungheinrichs primaire bedrijfskleur, voor primarire buttons. */ 
     --c-accent-red: #CC0000;        /* Jungheinrichs accentkleur. */ 
     --c-green: #009697;
     --c-dark-grey: #3C4648;

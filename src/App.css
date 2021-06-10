@@ -8,37 +8,8 @@
 }
 
 /* CSS variabelen. (bijv. h1 {font-family: var(--heading-font-family);} */
-:root {
-  /* Header en body fonts, font color */
-  --font-family-heading: 'Roboto Slab', serif;   
-  --font-family-paragraph: 'Open Sans', sans-serif;
-  --c-light-font: #000000;
-  --c-dark-font: #FFFFFF;
-
-  /* Achtergronden kleuren */
-  --c-primary-bg: #F1F1F1;
-  --c-secondary-bg: #000000;
-
-  /* Button kleuren */
-  --c-primary-button: #FFB900;
-  --c-primary-button-hover: #FFD053;
-  --c-secondary-button: #3C4648;   
-  --c-secondary-button-hover: #787D7E;
-  --c-confirmation-button: #009697;
-  --c-confirmation-button-hover: #0CB2B4;
-  --c-cancel-button: #CC0000;
-  --c-cancel-button-hover: #DA4C4C;
 
 
-  /* Kleurenpalet uit de styleguide */
-  --c-black: #000;
-  --c-white: #fff;
-  --c--yellow: #FFB900;           /* Jungheinrichs primaire bedrijfskleur, voor primarire buttons. */ 
-  --c-accent-red: #CC0000;        /* Jungheinrichs accentkleur. */ 
-  --c-green: #009697;
-  --c-dark-grey: #3C4648;
-  --c-light-grey: #F1F1F1;
-}
 
 html{
   font-size: 62.5%;
@@ -56,26 +27,41 @@ h1, h2, h3 {
 }
 
 main{
-  width: 100%;
-  height: 50rem;
+  width: 100vw;
   display: grid;
-  grid-template-columns: 1fr 3fr;
-  
+  grid-template-columns: 250px 1fr;
+  grid-template-areas: "Sidebar Content";
+  background-color: var(--c-primary-bg);
 }
 
 li {
   list-style-type: none;
 }
 
+.sideBar {
+  grid-area: Sidebar;
+}
+
 
 .productGrid{
-  width: 70%;
+  /* External grid values for the App.css grid */
+  align-self: center;
+  justify-self: center;
+  grid-area: Content;
+
+  /* Internal grid values */
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  justify-content: center;
-  align-items: center;
-  gap: 2rem;
-  padding: 4rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  justify-items: stretch;
+  justify-content: space-evenly;
+  gap: 5rem;
+
+
+  /*  */
+  
+
+
+
 }
 
 @media only screen and (max-width: 1200px){

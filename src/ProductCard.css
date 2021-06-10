@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto+Slab&display=swap');
 
 
-:root {
+.root {
     /* Header en body fonts, font color */
     --font-family-heading: 'Roboto Slab', serif;   
     --font-family-paragraph: 'Open Sans', sans-serif;
@@ -32,13 +32,13 @@
     --c-green: #009697;
     --c-dark-grey: #3C4648;
     --c-light-grey: #F1F1F1;
-}
+  }
 
 .productCard {
     position: relative;
-    height: 75rem;
+    height: 60rem;
     width: 100%;
-    border: 0.5rem solid black;
+    background-color: var(--c-white);
 
     font-family: var(--font-family-paragraph);
 }
@@ -48,12 +48,14 @@
     top: 0;
     left: 0;
     display: flex;
-    flex-direction: row;
-    align-items: center;
+    flex-direction: column;
+    align-items: start;
     padding: 1rem;
+    padding-bottom: 0rem;
     background-color: var(--c-secondary-bg);
-    border-bottom: 0.3rem solid var(--c-yellow);
-    height: 10%;
+    color: var(--c-dark-font);
+    border-bottom: 0.5rem solid var(--c-yellow);
+    height: 15%;
     width: 80%;
 
     font-family: var(--font-family-heading);
@@ -61,34 +63,29 @@
 
 .productCard__category{
     color: var(--c-dark-font);
-    align-self: left;
     display: block;
     height: 100%;
-    width: 75%;
-    font-size: 2.4rem;
+    font-size: 2.2rem;
 }
 
 .productCard__subCategory{
     display: block;
+    align-self: end;
     height: 100%;
-    width: 25%;
-    margin-left: 2rem;
-    justify-self: center;
-    color: white;   
-    
-    font-size: 2rem;
+    font-size: 1.8rem;
 
 }
 
 .productCard__header{
+    margin: 0 auto;
     height: 10%;
-    width: 100%;
-    padding-top: 2rem;
+    width: 90%;
+    padding-top: 1rem;
     font-family: var(--font-family-heading);
 }
 
 .productCard__heading{
-    padding-left: 4rem;
+
 }
 
 .productCard__body{
@@ -117,10 +114,10 @@
 
 .productCard__description{
     display: block;
-    width: 50%;
+    font-size: 2rem;
+    width: 90%;
     height: 20%;
     margin : 0 auto;
-    text-align: justify;
 }
 
 
