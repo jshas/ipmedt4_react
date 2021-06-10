@@ -33,7 +33,7 @@ class App extends React.Component {
   }
 
   products = [];
-  
+
   render() {
     this.products = this.state.productList.map((product) => {
       return (
@@ -43,12 +43,13 @@ class App extends React.Component {
       )
     });
     return(
-      // <ul className="productGrid">
-      //   {this.products}
-      // </ul>
-      <UserPage UserButtonClicked={this.UserButtonClicked} />
+      <section>
+        <ul className="productGrid">
+          {this.products}
+        </ul>
+        <UserPage UserButtonClicked={this.UserButtonClicked} />
+      </section>
     )
 };
 }
 export default App;
-
