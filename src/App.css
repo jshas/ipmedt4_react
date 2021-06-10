@@ -58,6 +58,8 @@ h1, h2, h3 {
 main{
   width: 100%;
   height: 50rem;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
   
 }
 
@@ -67,6 +69,7 @@ li {
 
 
 .productGrid{
+  width: 70%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   justify-content: center;

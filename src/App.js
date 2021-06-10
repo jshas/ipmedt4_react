@@ -11,6 +11,7 @@ import axios from "axios";
 
 import ProductCard from "./ProductCard";
 import "./App.css";
+import Sidebar from './Sidebar';
 
 class App extends React.Component {
   state = { productList: [] };
@@ -36,7 +37,7 @@ class App extends React.Component {
   }
 
   products = [];
-  
+
   render() {
     this.products = this.state.productList.map((product) => {
       return (
@@ -46,11 +47,16 @@ class App extends React.Component {
       )
     });
     return(
-      <ul className="productGrid">
-        {this.products}
-      </ul>
+      <main>
+        <ul className="productGrid">
+          {this.products}
+        </ul>
+        <Sidebar />
+        <ul className="productGrid">
+          {this.products}
+        </ul>
+      </main>
     )
 };
 }
 export default App;
-
