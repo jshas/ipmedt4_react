@@ -55,6 +55,11 @@ li {
   margin: 3rem;
 }
 
+
+.userPage{
+  grid-area: Content;
+}
+
 @media only screen and (max-width: 1200px){
   .productCard{
     width: 75%;

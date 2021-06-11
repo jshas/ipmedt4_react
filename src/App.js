@@ -1,19 +1,13 @@
 import React from "react";
-// import {
-//   BrowserRouter as Router,
-//   Switch,
-//   Route,
-//   Link,
-//   useParams,
-// } from "react-router-dom";
-
 import axios from "axios";
-
+import UserPage from "./UserPage";
 import ProductCard from "./ProductCard";
+import {Link, Switch, Route, BrowserRouter as Router} from "react-router-dom";
 import "./App.css";
 import Sidebar from './Sidebar';
 
 class App extends React.Component {
+
   state = { productList: [] };
 
   componentDidMount() {
@@ -47,12 +41,33 @@ class App extends React.Component {
       )
     });
     return(
-      <main>
-        <Sidebar className="Sidebar" />
-        <ul className="productGrid">
-          {this.products}
-        </ul>
-      </main>
+      <Router>
+        <Switch>
+
+        <Route path="/users">
+            <main>
+            <Sidebar className="Sidebar" />
+            <UserPage className="userPage" UserButtonClicked={this.UserButtonClicked} />
+            </main>
+          </Route>
+
+
+
+          {/* Hou deze route onderaan, zodat alles correct genereerd */}
+          <Route path="/">
+            <main>
+              <Sidebar className="Sidebar" />
+              <ul className="productGrid">
+                {this.products}
+              </ul>
+            </main>
+          </Route>
+          
+          
+        
+        </Switch>
+      </Router>
+
     )
 };
 }

@@ -26,7 +26,7 @@ const ProductCard = (props) => {
             <article className="productCard" >
                 <section className="productCard__label">
                     <h2 className="productCard__category">{props.value.category || "Categorie"}</h2>
-                    <p class="productCard__subCategory">{props.value.sub_category}</p>
+                    <p className="productCard__subCategory">{props.value.sub_category}</p>
                 </section>
                 <header className="productCard__header">
                     <h2 className="productCard__heading">{props.value.brand || "Brand"} {props.value.model || "Model"}</h2>
