@@ -41,17 +41,32 @@ class App extends React.Component {
       )
     });
     return(
+      <Router>
+        <Switch>
 
+        <Route path="/users">
             <main>
-            <Sidebar className="Sidebar" />
-            <ul className="productGrid">
-              {this.products}
-            </ul>
-          
-        
             <Sidebar className="Sidebar" />
             <UserPage className="userPage" UserButtonClicked={this.UserButtonClicked} />
             </main>
+          </Route>
+
+
+
+          {/* Hou deze route onderaan, zodat alles correct genereerd */}
+          <Route path="/">
+            <main>
+              <Sidebar className="Sidebar" />
+              <ul className="productGrid">
+                {this.products}
+              </ul>
+            </main>
+          </Route>
+          
+          
+        
+        </Switch>
+      </Router>
 
     )
 };
