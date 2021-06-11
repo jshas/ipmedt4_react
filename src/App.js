@@ -6,10 +6,6 @@ import "./App.css";
 
 class App extends React.Component {
 
-  UserButtonClicked = id => {
-    console.log("je klikt op knop " + id);
-  }
-
   state = { productList: [] };
 
   componentDidMount() {
