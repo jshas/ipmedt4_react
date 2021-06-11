@@ -2,7 +2,9 @@ import React from "react";
 import axios from "axios";
 import UserPage from "./UserPage";
 import ProductCard from "./ProductCard";
+import {Link, Switch, Route, BrowserRouter as Router} from "react-router-dom";
 import "./App.css";
+import Sidebar from './Sidebar';
 
 class App extends React.Component {
 
@@ -39,12 +41,18 @@ class App extends React.Component {
       )
     });
     return(
-      <section>
-        <ul className="productGrid">
-          {this.products}
-        </ul>
-        <UserPage UserButtonClicked={this.UserButtonClicked} />
-      </section>
+
+            <main>
+            <Sidebar className="Sidebar" />
+            <ul className="productGrid">
+              {this.products}
+            </ul>
+          
+        
+            <Sidebar className="Sidebar" />
+            <UserPage className="userPage" UserButtonClicked={this.UserButtonClicked} />
+            </main>
+
     )
 };
 }
