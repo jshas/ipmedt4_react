@@ -1,8 +1,8 @@
 .productGrid{
     /* External grid values for the App.css grid */
-    align-self: center;
-    justify-self: center;
-    grid-area: Content;
+
+
+    grid-column: 2 / span all;
 
     /* Internal grid values */
     display: grid;

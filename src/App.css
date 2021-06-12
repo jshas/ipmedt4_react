@@ -23,8 +23,9 @@ h1, h2, h3 {
   font-family: var(--heading-font-family)
 }
 
-main{
+main > section {
   width: 100vw;
+  min-height: 100%;
   display: grid;
   grid-template-columns: 280px 1fr;
   grid-template-areas: "Sidebar Content";
@@ -43,20 +44,7 @@ li {
 
 }
 
-.productPage {
 
-}
-
-@media only screen and (max-width: 1200px){
-  .productCard{
-    width: 75%;
-    margin: 0 auto;
-    align-self: center;
-  }
-  .productGrid{
-    grid-template-columns: 1fr;
-  }
-}
 
 /* Utility Classes */
 .u-grid-area-content {

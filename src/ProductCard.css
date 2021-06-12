@@ -1,38 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto+Slab&display=swap');
 
 
-.root {
-    /* Header en body fonts, font color */
-    --font-family-heading: 'Roboto Slab', serif;   
-    --font-family-paragraph: 'Open Sans', sans-serif;
-    --c-light-font: #000000;
-    --c-dark-font: #FFFFFF;
-  
-    /* Achtergronden kleuren */
-    --c-primary-bg: #F1F1F1;
-    --c-secondary-bg: #2b2d2e;
-    --c-tertiary-bg: #000;
-  
-    /* Button kleuren */
-    --c-primary-button: #FFB900;
-    --c-primary-button-hover: #FFD053;
-    --c-secondary-button: #3C4648;   
-    --c-secondary-button-hover: #787D7E;
-    --c-confirmation-button: #009697;
-    --c-confirmation-button-hover: #0CB2B4;
-    --c-cancel-button: #CC0000;
-    --c-cancel-button-hover: #DA4C4C;
-  
-  
-    /* Kleurenpalet uit de styleguide */
-    --c-black: #000;
-    --c-white: #fff;
-    --c-yellow: #FFB900;           /* Jungheinrichs primaire bedrijfskleur, voor primarire buttons. */ 
-    --c-accent-red: #CC0000;        /* Jungheinrichs accentkleur. */ 
-    --c-green: #009697;
-    --c-dark-grey: #3C4648;
-    --c-light-grey: #F1F1F1;
-  }
+
 
 .productCard {
     position: relative;
@@ -43,13 +11,21 @@
     font-family: var(--font-family-paragraph);
 }
 
+@media only screen and (max-width: 1200px){
+    .productCard{
+      width: 75%;
+      margin: 0 auto;
+      align-self: center;
+    }
+}
+
 .productCard__label{
     position: relative;
     top: 0;
     left: 0;
     display: flex;
     flex-direction: column;
-    align-items: start;
+    align-items: flex-start;
     padding: 1rem;
     padding-bottom: 0rem;
     background-color: var(--c-secondary-bg);

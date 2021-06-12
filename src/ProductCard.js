@@ -1,20 +1,14 @@
-import React, { useEffect, useState, state} from 'react';
-import axios from 'axios';
+import React from 'react';
+
 
 // import OrderButton from './OrderButton';
-
 import './ProductCard.css';
 
 
 const ProductCard = (props) => {
+    console.log("ProductCard" + props.value);
 
     const localHost = 'http://localhost:8000/' 
-    
-    // useEffect(()=>{
-    //     this.onClick{
-
-    //     }
-    // })
 
     function handleOrder(){
         
