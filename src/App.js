@@ -1,74 +1,72 @@
+/* External imports */
 import React from "react";
 import axios from "axios";
-import UserPage from "./UserPage";
-import ProductCard from "./ProductCard";
-import {Link, Switch, Route, BrowserRouter as Router} from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
+
+/* Internal imports */
+import Sidebar from "./components/layout/Sidebar";
+import UserPage from "./pages/UserPage";
+import ProductCard from "./components/layout/ProductCard";
+
+/* CSS imports */
 import "./App.css";
-import Sidebar from './Sidebar';
 
 class App extends React.Component {
+    state = { productList: [] };
+    products = [];
 
-  state = { productList: [] };
+    componentDidMount() {
+        this.getProducts();
+    }
 
-  componentDidMount() {
-    this.getProducts();
-  }
+    getProducts() {
+        const BASE_URL = "http://127.0.0.1:8000/api/products/";
+        axios
+            .get(BASE_URL)
+            .then((res) => {
+                this.setState({ productList: res.data });
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    }
 
-  getProducts() {
-    const BASE_URL = "http://127.0.0.1:8000/api/products/";
-    axios
-      .get(BASE_URL)
-      .then((res) => {
-        this.setState({ productList: res.data });
-        })
-      .catch((err) => {
-        console.log(err);
-      });
-  }
+    selectProduct(id) {
+        return this.state.productList;
+    }
 
-  selectProduct(id) {
-    return this.state.productList;
-  }
+    render() {
+        this.products = this.state.productList.map((product) => {
+            return (
+                <li key={product.id.toString()}>
+                    <ProductCard key={product.key} value={product} />
+                </li>
+            );
+        });
 
-  products = [];
+        return (
+            <Switch>
+                <Route path="/" exact>
+                    <article className="pageLayout">
+                        <Sidebar className="u-grid-area-sidebar" />
+                        <section className="Grid u-grid-area-content u-list-style-none">
+                            {this.products}
+                        </section>
+                    </article>
+                </Route>
 
-  render() {
-    this.products = this.state.productList.map((product) => {
-      return (
-      <li key={product.id.toString()}>
-        <ProductCard key={product.key} value={product} />
-      </li>
-      )
-    });
-    return(
-      <Router>
-        <Switch>
-
-        <Route path="/users">
-            <main>
-            <Sidebar className="Sidebar" />
-            <UserPage className="userPage" UserButtonClicked={this.UserButtonClicked} />
-            </main>
-          </Route>
-
-
-
-          {/* Hou deze route onderaan, zodat alles correct genereerd */}
-          <Route path="/">
-            <main>
-              <Sidebar className="Sidebar" />
-              <ul className="productGrid">
-                {this.products}
-              </ul>
-            </main>
-          </Route>
-          
-          
-        
-        </Switch>
-      </Router>
-
-    )
-};
+                <Route path="/users">
+                    <article className="pageLayout">
+                        <Sidebar className="u-grid-area-sidebar" />
+                        <UserPage
+                            className="Grid u-grid-area-content u-list-style-none"
+                            UserButtonClicked={this.UserButtonClicked}
+                        />
+                    </article>
+                </Route>
+            </Switch>
+        );
+    }
 }
+
 export default App;
