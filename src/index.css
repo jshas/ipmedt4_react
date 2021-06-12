@@ -1,32 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto+Slab&display=swap");
+
 :root {
     /* Header en body fonts, font color */
-    --font-family-heading: 'Roboto Slab', serif;   
-    --font-family-paragraph: 'Open Sans', sans-serif;
+    --font-family-heading: "Roboto Slab", serif;
+    --font-family-paragraph: "Open Sans", sans-serif;
     --c-light-font: #000000;
-    --c-dark-font: #FFFFFF;
-  
+    --c-dark-font: #ffffff;
+
     /* Achtergronden kleuren */
-    --c-primary-bg: #F1F1F1;
+    --c-primary-bg: #f1f1f1;
     --c-secondary-bg: #2b2d2e;
     --c-tertiary-bg: #000;
-  
+
     /* Button kleuren */
-    --c-primary-button: #FFB900;
-    --c-primary-button-hover: #FFD053;
-    --c-secondary-button: #3C4648;   
-    --c-secondary-button-hover: #787D7E;
+    --c-primary-button: #ffb900;
+    --c-primary-button-hover: #ffd053;
+    --c-secondary-button: #3c4648;
+    --c-secondary-button-hover: #787d7e;
     --c-confirmation-button: #009697;
-    --c-confirmation-button-hover: #0CB2B4;
-    --c-cancel-button: #CC0000;
-    --c-cancel-button-hover: #DA4C4C;
-  
-  
+    --c-confirmation-button-hover: #0cb2b4;
+    --c-cancel-button: #cc0000;
+    --c-cancel-button-hover: #da4c4c;
+
     /* Kleurenpalet uit de styleguide */
     --c-black: #000;
     --c-white: #fff;
-    --c-yellow: #FFB900;           /* Jungheinrichs primaire bedrijfskleur, voor primarire buttons. */ 
-    --c-accent-red: #CC0000;        /* Jungheinrichs accentkleur. */ 
+    --c-yellow: #ffb900; /* Jungheinrichs primaire bedrijfskleur, voor primarire buttons. */
+    --c-accent-red: #cc0000; /* Jungheinrichs accentkleur. */
     --c-green: #009697;
-    --c-dark-grey: #3C4648;
-    --c-light-grey: #F1F1F1;
+    --c-dark-grey: #3c4648;
+    --c-light-grey: #f1f1f1;
 }
