@@ -1,25 +1,18 @@
-
-
-
+/*
+|--------------------------------------------------------------------------
+|   Product Cards
+|--------------------------------------------------------------------------
+*/
 
 .productCard {
     position: relative;
     height: 60rem;
     width: 100%;
     background-color: var(--c-white);
-
     font-family: var(--font-family-paragraph);
 }
 
-@media only screen and (max-width: 1200px){
-    .productCard{
-      width: 75%;
-      margin: 0 auto;
-      align-self: center;
-    }
-}
-
-.productCard__label{
+.productCard__label {
     position: relative;
     top: 0;
     left: 0;
@@ -33,26 +26,24 @@
     border-bottom: 0.5rem solid var(--c-yellow);
     height: 15%;
     width: 80%;
-
     font-family: var(--font-family-heading);
 }
 
-.productCard__category{
+.productCard__category {
     color: var(--c-dark-font);
     display: block;
     height: 100%;
     font-size: 2.2rem;
 }
 
-.productCard__subCategory{
+.productCard__subCategory {
     display: block;
     align-self: end;
     height: 100%;
     font-size: 1.8rem;
-
 }
 
-.productCard__header{
+.productCard__header {
     margin: 0 auto;
     height: 10%;
     width: 90%;
@@ -60,11 +51,11 @@
     font-family: var(--font-family-heading);
 }
 
-.productCard__heading{
+/* .productCard__heading {
 
-}
+} */
 
-.productCard__body{
+.productCard__body {
     font-family: var(--font-family-paragraph);
     display: flex;
     justify-content: space-between;
@@ -74,30 +65,28 @@
     height: 75%;
 }
 
-.productCard__figure{
-    height: 20rem; 
+.productCard__figure {
+    height: 20rem;
     width: 100%;
     margin-bottom: 4rem;
-
 }
 
-.productCard__img{
+.productCard__img {
     width: 100%;
     height: 100%;
     object-fit: contain;
     object-position: center;
 }
 
-.productCard__description{
+.productCard__description {
     display: block;
     font-size: 2rem;
     width: 90%;
     height: 20%;
-    margin : 0 auto;
+    margin: 0 auto;
 }
 
-
-.productCard__button{
+.productCard__button {
     position: absolute;
     width: 100%;
     height: 10%;
@@ -109,9 +98,8 @@
     background-color: var(--c-primary-button);
 }
 
-.productCard__button:hover{
+.productCard__button:hover {
     background-color: var(--c-primary-button-hover);
     cursor: pointer;
     align-self: bottom;
 }
-

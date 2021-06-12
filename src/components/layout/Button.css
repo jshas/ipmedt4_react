@@ -1,0 +1,21 @@
+/*
+|--------------------------------------------------------------------------
+|   Buttons
+|--------------------------------------------------------------------------
+*/
+
+.button {
+    width: 4rem;
+    height: 4rem;
+    font-family: var(--font-family-heading);
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: var(--c-primary-button);
+}
+
+.button:hover {
+    background-color: var(--c-primary-button-hover);
+}

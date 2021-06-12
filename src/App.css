@@ -1,53 +1,86 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto+Slab&display=swap');
-
+/*
+|--------------------------------------------------------------------------
+|   CSS Standards
+|--------------------------------------------------------------------------
+*/
 
 * {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
-/* CSS variabelen. (bijv. h1 {font-family: var(--heading-font-family);} */
-html{
-  font-size: 62.5%;
+html {
+    font-size: 62.5%;
 }
 
-body{
-  font-size: 1.8rem;
-  width: 100%;
-  min-height: 100vh;
-  
+body {
+    font-size: 1.8rem;
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--c-primary-bg);
 }
 
-h1, h2, h3 {
-  font-family: var(--heading-font-family)
+h1,
+h2,
+h3 {
+    font-family: var(--heading-font-family);
 }
 
-main > section {
-  width: 100vw;
-  min-height: 100%;
-  display: grid;
-  grid-template-columns: 280px 1fr;
-  grid-template-areas: "Sidebar Content";
-  background-color: var(--c-primary-bg);
+/*
+|--------------------------------------------------------------------------
+|   CSS Layout
+|--------------------------------------------------------------------------
+*/
+
+.pageLayout {
+    width: 100vw;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 25rem 1fr;
+    grid-template-areas: "Sidebar Content";
 }
 
-li {
-  list-style-type: none;
+.Grid {
+    /* External grid values for the App.css grid */
+    align-self: center;
+    justify-self: center;
+    grid-area: Content;
+
+    /* Internal grid values */
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    justify-items: stretch;
+    justify-content: space-evenly;
+    gap: 4rem;
+    margin: 3rem;
 }
 
-.sideBar {
-  grid-area: Sidebar;
+@media only screen and (max-width: 1200px) {
+    .productCard {
+        width: 75%;
+        margin: 0 auto;
+        align-self: center;
+    }
+    .Grid {
+        grid-template-columns: 1fr;
+    }
 }
 
-.userPage {
+/*
+|--------------------------------------------------------------------------
+|   Utility Classes
+|--------------------------------------------------------------------------
+*/
 
-}
-
-
-
-/* Utility Classes */
 .u-grid-area-content {
-  grid-area: Content;
+    grid-area: Content;
+}
 
+.u-grid-area-sidebar {
+    grid-area: Sidebar;
+}
+
+.u-list-style-none {
+    list-style: none;
 }
