@@ -4,6 +4,8 @@
 |--------------------------------------------------------------------------
 */
 
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto+Slab&display=swap");
+
 * {
     padding: 0;
     margin: 0;
@@ -19,12 +21,13 @@ body {
     width: 100%;
     min-height: 100vh;
     background-color: var(--c-primary-bg);
+    font-family: var(--font-family-paragraph);
 }
 
 h1,
 h2,
 h3 {
-    font-family: var(--heading-font-family);
+    font-family: var(--font-family-heading);
 }
 
 /*

@@ -1,12 +1,12 @@
 /* External imports */
 import React from "react";
-import axios from "axios";
 import { Switch, Route } from "react-router-dom";
 
 /* Internal imports */
 import Sidebar from "./components/layout/Sidebar";
 import UserPage from "./pages/UserPage";
 import ProductPage from "./pages/ProductPage";
+import LoginPage from "./pages/LoginPage";
 
 /* CSS imports */
 import "./App.css";
@@ -42,6 +42,10 @@ class App extends React.Component {
                             UserButtonClicked={this.UserButtonClicked}
                         />
                     </article>
+                </Route>
+
+                <Route path="/login">
+                    <LoginPage />
                 </Route>
             </Switch>
         );
