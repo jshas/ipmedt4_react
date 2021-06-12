@@ -16,6 +16,20 @@
     background-color: var(--c-primary-button);
 }
 
+.button:disabled{
+    color: var(--c-primary-button-disabled);
+}
+
+
+
 .button:hover {
     background-color: var(--c-primary-button-hover);
 }
+
+/* OrderButton */
+
+}
+
+
+
+

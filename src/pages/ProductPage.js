@@ -1,14 +1,14 @@
 import React from 'react';
 import axios from 'axios';
 
-import ProductCard from './ProductCard';
+import ProductCard from '../components/layout/ProductCard';
 import './ProductPage.css';
 
 class ProductPage extends React.Component {
 
-    state = {isLoading: true, productsList: [],};
+    state = {isLoading: true, productsList: [], };
     products = [];
-
+    
     componentDidMount(){
         this.getProducts();
     };
@@ -26,21 +26,10 @@ class ProductPage extends React.Component {
           });
     };
 
-    
-    if (){
-        return(
-            <section className="u-grid-area-content">
-                <div className="loader">Loading...</div>
-            </section>
-        );
-    }
-
-
     render(){
-
         this.products = this.state.productsList.map((product) => {
           return (
-          <li key={product.id.toString()}>
+          <li className="u-list-style-none" key={product.id.toString()}>
             <ProductCard key={product.key} value={product} />
           </li>
           )
@@ -48,6 +37,7 @@ class ProductPage extends React.Component {
 
         return (
           <ul className="productGrid">
+
              {this.products}
           </ul>
         );
