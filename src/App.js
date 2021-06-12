@@ -7,6 +7,7 @@ import { Switch, Route } from "react-router-dom";
 import Sidebar from "./components/layout/Sidebar";
 import UserPage from "./pages/UserPage";
 import ProductCard from "./components/layout/ProductCard";
+import LoginPage from "./pages/LoginPage";
 
 /* CSS imports */
 import "./App.css";
@@ -63,6 +64,10 @@ class App extends React.Component {
                             UserButtonClicked={this.UserButtonClicked}
                         />
                     </article>
+                </Route>
+
+                <Route path="/login">
+                    <LoginPage />
                 </Route>
             </Switch>
         );
