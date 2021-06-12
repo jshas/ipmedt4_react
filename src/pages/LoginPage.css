@@ -1,0 +1,132 @@
+/*
+|--------------------------------------------------------------------------
+|   Login Page
+|--------------------------------------------------------------------------
+*/
+
+.loginSection {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-areas: "Figure Figure Form";
+}
+
+/*
+|--------------------------------------------------------------------------
+|   Figure Section
+|--------------------------------------------------------------------------
+*/
+
+.loginSection__figure {
+    grid-area: Figure;
+    width: 100%;
+    height: 100%;
+    background: url(../img/jungheinrich_bg.jpg) no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+/*
+|--------------------------------------------------------------------------
+|   Form Field
+|--------------------------------------------------------------------------
+*/
+
+.loginSection__form {
+    grid-area: Form;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--c-yellow);
+}
+
+.loginSection__form__field {
+    width: 100%;
+}
+
+.loginSection__form__heading {
+    font-size: 3rem;
+    margin: 4rem 0;
+}
+
+.loginSection__form__inputField {
+    width: 60%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    border: none;
+}
+
+.loginSection__form__inputField > label {
+    font-family: var(--font-family-heading);
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.loginSection__form__inputField > input {
+    font-family: var(--font-family-heading);
+    padding: 0.75rem 1rem;
+    margin-bottom: 2rem;
+    border: none;
+}
+
+.loginSection__form__inputField > input:focus {
+    outline: 0.25rem solid var(--c-white);
+    box-shadow: 0 0.5rem 2rem var(--c-white);
+}
+
+.loginSection__form__btnField {
+    width: 60%;
+    margin: 0 auto;
+    border: none;
+}
+
+.loginSection__form__btnField > button {
+    font-family: var(--font-family-paragraph);
+    font-size: 1.8rem;
+    width: 100%;
+    padding: 1rem 1rem;
+    border: none;
+    color: var(--c-white);
+    background-color: var(--c-dark-grey);
+    transition: 0.1s all;
+}
+
+.loginSection__form__btnField > button:hover {
+    cursor: pointer;
+    box-shadow: 0 0.5rem 2rem var(--c-dark-grey);
+}
+
+.loginSection__form__paragraph {
+    margin: 2rem 0;
+}
+
+/*
+|--------------------------------------------------------------------------
+|   Media Queries
+|--------------------------------------------------------------------------
+*/
+@media only screen and (max-width: 1024px) {
+    .loginSection {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-areas: "Figure Form";
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .loginSection {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-areas: "Figure Form Form";
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    .loginSection {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+        grid-template-areas: "Form";
+    }
+}
