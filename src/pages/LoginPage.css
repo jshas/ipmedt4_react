@@ -110,6 +110,7 @@
 |   Media Queries
 |--------------------------------------------------------------------------
 */
+
 @media only screen and (max-width: 1024px) {
     .loginSection {
         grid-template-columns: repeat(2, minmax(0, 1fr));
