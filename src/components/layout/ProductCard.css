@@ -82,20 +82,4 @@
     margin: 0 auto;
 }
 
-.productCard__button {
-    position: absolute;
-    width: 100%;
-    height: 10%;
-    bottom: 0;
-    font-family: var(--font-family-heading);
-    font-size: 2rem;
-    border: none;
-    align-self: flex-end;
-    background-color: var(--c-primary-button);
-}
 
-.productCard__button:hover {
-    background-color: var(--c-primary-button-hover);
-    cursor: pointer;
-    align-self: bottom;
-}
