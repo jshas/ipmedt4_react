@@ -29,8 +29,6 @@ export const logOut = () => {
             sameSite: "lax",
         });
 
-        console.log("Uitgelogd!");
-
         window.location.replace("/login");
     }
 };
