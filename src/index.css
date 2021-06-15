@@ -19,8 +19,11 @@
     --c-secondary-button-hover: #787d7e;
     --c-confirmation-button: #009697;
     --c-confirmation-button-hover: #0cb2b4;
-    --c-cancel-button: #cc0000;
-    --c-cancel-button-hover: #da4c4c;
+    /* --c-cancel-button: #cc0000; */
+    /* --c-cancel-button-hover: #da4c4c; */
+    --c-cancel-button: #f43636;
+    --c-cancel-button-hover: #e49c9c;
+
 
     /* Kleurenpalet uit de styleguide */
     --c-black: #000;

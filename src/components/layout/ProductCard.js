@@ -11,18 +11,30 @@ const ProductCard = (props) => {
   const localhost = "http://127.0.0.1:8000/";
   const [inCart, setInCart] = useState(false);
 
-  const cartButtonHandler = e => {
-    setInCart(!e);
-    console.log(
-      props.product.id,
-      inCart
-    );
+  const cardClickHandler = () => {
+    // Inverts state based on user interaction
+    setInCart(inCart => !inCart);
+    // This is passed on to the parent component
+    let action = inCart ? 'remove' : 'add';
+    console.log(props.product.id);
+    props.onChange(props.product.id, action);
   };
 
-  useEffect(() => {
-    let productAdded;
-    productAdded = inCart ? true : false;
-  }, [inCart]);
+  // useEffect(() => {
+  //   // Functions used to send callback to update ProductPage state
+  //   const addProductToCartList = () => {
+  //     return console.log("Product should be added to cart now.")
+  //   };
+  //   const removeProductFromCartList = () => {
+  //     return console.log("Product should be removed from cart now.")
+  //   };
+  //   // Checks the current ProductCard inCart value to decide the next action.
+  //   const productAdded = inCart ? (true, addProductToCartList()) : (false, removeProductFromCartList());
+  // }, 
+  // [inCart]);
+  
+
+
 
   return (
     <article className="productCard">
@@ -49,16 +61,18 @@ const ProductCard = (props) => {
           />
         </figure>
         <p className="productCard__description">{props.product.description}</p>
-        {/* <p className="productCard__description">{product.rule}</p> */}
       </section>
-      {/* TO-DO: Add Rule Section to display product rule. */}
+      {/* TODO: Add Rule Section to display product rule. */}
       <OrderButton
-        productAdded={props.productAdded}
         inCart={inCart}
-        onClick={(e) => cartButtonHandler(e)}
+        onClick={(e) => cardClickHandler(e.currentTarget)}
       />
     </article>
   );
 };
 
 export default ProductCard;
+
+
+// Code written to send update action from productCard. 
+// Current code checks the inCart value passed to productpage and updates there.

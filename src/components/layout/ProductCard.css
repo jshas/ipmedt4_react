@@ -8,13 +8,22 @@
     position: relative;
     height: 60rem;
     width: 100%;
-    max-width: 50rem;
     min-width: 30rem;
     background-color: var(--c-white);
     font-family: var(--font-family-paragraph);
-    box-shadow: 0.8rem 1rem 1.1rem -2rem rgba(0,0,0,0.58);
+    box-shadow: 0.2rem 0.2rem 1rem 0.1rem  rgba(0,0,0,0.58);
     transition: 0.2s all;
+
+    display: flex;
+    flex-flow: column nowrap;
 }
+
+.productCard[inCart]{
+    border: var(--c-primary-button);
+}
+
+
+
 
 .productCard__label {
     position: relative;
@@ -85,5 +94,6 @@
     height: 20%;
     margin: 0 auto;
 }
+
 
 

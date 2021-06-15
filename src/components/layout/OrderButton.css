@@ -7,14 +7,24 @@
     font-size: 2rem;
     border: none;
     align-self: flex-end;
+    transition: 0.2s transform ease-out;
+
 }
+
 
 .orderButton:hover{
     cursor: pointer;
 }
 
+.orderButton:active{
+    transform: translateY(1rem);
+    transform:skewY(10% 10%);
+    
+}
+
 .orderButton--add{
     background-color: var(--c-primary-button);
+    
 }
 
 .orderButton--add:hover{
@@ -23,10 +33,10 @@
 
 .orderButton--remove{
     background-color: var(--c-cancel-button);
-    color: var(--c-dark-font);
+    /* color: var(--c-dark-font); */
 }
 
 .orderButton--remove:hover{
     background-color: var(--c-cancel-button-hover);
-    color: var(--c-dark-font);
+    /* color: var(--c-dark-font); */
 }
