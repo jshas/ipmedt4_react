@@ -12,13 +12,20 @@ nav {
     font-family: "Roboto Slab", "Tahoma", sans-serif;
 }
 
-.nav-main__logo {
-    background-color: #ffb900;
-    padding: 15px;
-    padding-right: 20px;
-    padding-left: 20px;
-    height: 7%;
-    width: 100%;
+.headerNav{
+  background-color: #ffb900;
+  padding: 15px;
+  padding-right: 20px;
+  padding-left: 20px;
+  width: 100%;
+}
+
+.nav-main__dropdown{
+  transform: translateY(3px);
+}
+
+.nav-main__logo{
+  margin-left: 20px;
 }
 
 a {
@@ -27,9 +34,14 @@ a {
     color: #ffffff;
     margin-left: 10px;
     margin-right: 10px;
-    margin-bottom: 5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
     border-top: 1px solid #50585a;
     border-bottom: 1px solid #50585a;
+}
+
+a:hover{
+  background-color: #50585a;
 }
 
 .nav-main__icon {
@@ -40,8 +52,6 @@ a {
 .topNav,
 .catNav,
 .adminNav {
-    margin-bottom: 15px;
-    padding-bottom: 10px;
     border-bottom: 1px solid #50585a;
 }
 
@@ -49,4 +59,18 @@ a {
     position: absolute;
     width: 100%;
     bottom: 0;
+    margin-bottom: -10px;
+}
+
+@media only screen and (max-width: 1023px){
+  nav{
+    width: 100%;
+  }
+}
+
+@media only screen and (max-height: 790px){
+  a{
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
 }
