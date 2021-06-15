@@ -15,12 +15,25 @@
     grid-template-columns: repeat(4, minmax(0, 1fr));
     justify-items: stretch;
     justify-content: space-evenly;
-    gap: 5rem;
-    margin: 3rem;  
+    gap: 4rem;
+    margin: 5rem;  
+    transition: 1s all;
 }
+
+
+@media only screen and (max-width: 1500px){
+  .productGrid{
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+
 
 @media only screen and (max-width: 1200px){
   .productGrid{
     grid-template-columns: 1fr;
   }
 }
+
+
+

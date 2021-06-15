@@ -7,34 +7,29 @@ import React from "react";
 import "./OrderButton.css";
 
 const OrderButton = (props) => {
-  console.log("order button", props);
-
-  const addProductButton = () => {
-    return (
-      <button onClick={props.onClick} className="orderButton orderButton--add">
-        {"Voeg toe aan uw bestelling"}
-      </button>
-    );
-  }
-
-  const removeProductButton = () => {
-    return (
-      <button
-        onClick={props.onClick}
-        className="orderButton orderButton--disabled"
-      >
-        {"Voeg toe aan uw bestelling"}
-      </button>
-    );
-  }
-
-  const orderButtonClickHandler = e => {
-      console.log(e);
-  }
+  const onClick = (e) => {
+    props.onClick(props.inCart);
+  };
 
   return (
     <>
-      {props.inCart ? { ...removeProductButton() } : { ...addProductButton() }}
+      {props.inCart ? (
+        <button
+          type="button"
+          onClick={onClick}
+          className="orderButton orderButton--remove"
+        >
+          {"Verwijder product uit winkelwagen"}
+        </button>
+      ) : (
+        <button
+          type="button"
+          onClick={onClick}
+          className="orderButton orderButton--add"
+        >
+          {"Voeg toe aan uw bestelling"}
+        </button>
+      )}
     </>
   );
 };

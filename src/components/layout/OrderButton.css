@@ -9,10 +9,8 @@
     align-self: flex-end;
 }
 
-.orderButton:hover {
-
+.orderButton:hover{
     cursor: pointer;
-    align-self: bottom;
 }
 
 .orderButton--add{
@@ -24,5 +22,11 @@
 }
 
 .orderButton--remove{
+    background-color: var(--c-cancel-button);
+    color: var(--c-dark-font);
+}
 
+.orderButton--remove:hover{
+    background-color: var(--c-cancel-button-hover);
+    color: var(--c-dark-font);
 }
