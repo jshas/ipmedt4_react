@@ -3,6 +3,7 @@ import React, { useState, useEffect, useReducer } from "react";
 import axios from "axios";
 
 /* Internal Imports*/
+import api from "../util/api";
 import ProductCard from "../components/layout/ProductCard";
 import "./ProductPage.css";
 
@@ -49,8 +50,8 @@ const ProductPage = (props) => {
   // Fetches the product API once when the component is mounted
   useEffect(() => {
     const BASE_URL = "http://localhost:8000/api/products/";
-    axios
-      .get(BASE_URL)
+    api()
+      .get('/api/products')
       .then((res) => {
         setIsLoading(false);
         setProductsList(res.data);
