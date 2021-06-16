@@ -1,0 +1,33 @@
+
+.exportProducts{
+  grid-column: 2 / span all;
+  list-style: none;
+  padding: 0.5rem;
+}
+
+.exportProducts__headers{
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0,1fr));
+}
+
+.exportProducts__orderlist__listItem{
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0,1fr));
+  border: 2px solid #3C4648;
+  border-top: none;
+}
+
+.exportProducts__orderlist__listItem__text{
+  padding-left: 0.5rem;
+}
+
+
+
+
+.u-border-bottom-black{
+  border-bottom: 2px solid #3C4648;
+}
+
+.u-border-right-grey{
+  border-right: 2px solid grey;
+}

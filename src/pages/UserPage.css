@@ -12,6 +12,8 @@
     width: 100%;
     margin: 0 auto;
     padding: 2rem;
+    grid-column: 2 / span all;
+    list-style: none;
 }
 
 @media only screen and (max-width: 1300px) {

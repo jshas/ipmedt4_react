@@ -8,6 +8,7 @@ import UserPage from "./pages/UserPage";
 import ProductPage from "./pages/ProductPage";
 import LoginPage from "./pages/LoginPage";
 import withAuth from "./components/withAuth";
+import ExportProducts from "./pages/ExportProducts";
 
 /* CSS imports */
 import "./App.css";
@@ -26,8 +27,17 @@ class App extends React.Component {
                     <article className="pageLayout">
                         <Sidebar className="u-grid-area-sidebar" />
                         <UserPage
-                            className="Grid u-grid-area-content u-list-style-none"
+                            className="Grid"
                             UserButtonClicked={this.UserButtonClicked}
+                        />
+                    </article>
+                </Route>
+
+                <Route path="/export-products">
+                    <article className="pageLayout">
+                        <Sidebar className="u-grid-area-sidebar" />
+                        <ExportProducts
+                            className="Grid"
                         />
                     </article>
                 </Route>
