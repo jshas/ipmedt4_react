@@ -7,20 +7,18 @@ import Sidebar from "./components/layout/Sidebar";
 import UserPage from "./pages/UserPage";
 import ProductPage from "./pages/ProductPage";
 import LoginPage from "./pages/LoginPage";
+import withAuth from "./components/withAuth";
 
 /* CSS imports */
 import "./App.css";
 
 class App extends React.Component {
-
     render() {
-
         return (
             <Switch>
                 <Route path="/" exact>
                     <article className="pageLayout">
-                         <Sidebar className="u-grid-area-sidebar" />
-                        {/* <ProductPage lassName="Grid u-grid-area-content u-list-style-none" /> */}
+                        <Sidebar className="u-grid-area-sidebar" />
                     </article>
                 </Route>
 
@@ -36,7 +34,7 @@ class App extends React.Component {
 
                 <Route path="/products">
                     <article className="pageLayout">
-                         <Sidebar className="u-grid-area-sidebar" />
+                        <Sidebar className="u-grid-area-sidebar" />
                         <ProductPage
                             className="Grid u-grid-area-content u-list-style"
                             UserButtonClicked={this.UserButtonClicked}
