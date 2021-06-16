@@ -70,7 +70,6 @@ const ProductPage = (props) => {
                     onChange={(productId, action) =>
                         updateCart(productId, action)
                     }
-                    // rule={product.rule.description}
                 />
             </li>
         );

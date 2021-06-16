@@ -8,9 +8,10 @@
 .productGrid{
     /* External grid values for the App.css grid */
     grid-column: 2 / span all;    
+    
     /* Internal grid values */
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     justify-items: stretch;
     justify-content: space-evenly;
     gap: 4rem;
@@ -18,20 +19,19 @@
     transition: 1s all;
 }
 
-
-@media only screen and (max-width: 110rem){
+@media only screen and (max-width: 1200px){
   .productGrid{
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
-@media only screen and (max-width: 80rem){
+@media only screen and (max-width: 900px){
   .productGrid{
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-@media only screen and (max-width: 60rem){
+@media only screen and (max-width: 600px){
   .productGrid{
     grid-template-columns:  minmax(0,1fr);
   }
