@@ -14,6 +14,7 @@ import "./ExportProducts.css";
 class ExportProducts extends React.Component {
   state = { orderList: [] };
   orders = [];
+  naam="Hasko";
 
 
   componentDidMount() {
@@ -31,6 +32,67 @@ class ExportProducts extends React.Component {
   };
 
 
+  exporteer = () =>{
+    var data = this.state.orderList;
+
+    var csv = 'Orderlijst\n';
+
+    csv += "Product";
+    csv += ";";
+    csv += "Merk";
+    csv += ";";
+    csv += "Model";
+    csv += ";";
+    csv += "Categorie";
+    csv += ";";
+    csv += "Aanatl";
+    csv += ";";
+    csv += "Prijs";
+    csv += ";";
+    csv += "Voornaam";
+    csv += ";";
+    csv += "Achternaam";
+    csv += ";";
+    csv += "Timestamp";
+    csv += "\n";
+    csv += "\n";
+
+    for (var i = 0; i < data.length; i++){
+      csv += data[i].sub_category;
+      csv += ";";
+      csv += data[i].brand;
+      csv += ";";
+      csv += data[i].model;
+      csv += ";";
+      csv += data[i].category;
+      csv += ";";
+      csv += data[i].quantity;
+      csv += ";";
+      csv += data[i].price/100;
+      csv += ";";
+      csv += data[i].first_name;
+      csv += ";";
+      csv += data[i].last_name;
+      csv += ";";
+      csv += data[i].created_at;
+
+      csv += "\n";
+      // console.log(data[i].price/100);
+      // sub_category model brand category quantity price/100 first_name last_name created_at
+    }
+
+    console.log(csv);
+    var hiddenElement = document.createElement('a');
+    hiddenElement.href = 'data:text/csv;charset=utf-8,' + encodeURI(csv);
+    hiddenElement.target = '_blank';
+    hiddenElement.download = 'Orderlijst.csv';
+    hiddenElement.click();
+  }
+
+
+
+
+
   render(){
     this.orders = this.state.orderList.map((order) => {
         return (
@@ -46,6 +108,8 @@ class ExportProducts extends React.Component {
 
     return(
     <section className="exportProducts">
+      <button className="exportProducts__button" type="button" onClick={this.exporteer}>Exporteer als .csv</button>
+
       <ul className="exportProducts__headers">
         <h2 className="u-border-bottom-black">Product</h2>
         <h2 className="u-border-bottom-black">Merk</h2>
