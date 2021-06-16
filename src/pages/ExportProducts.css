@@ -5,6 +5,10 @@
   padding: 0.5rem;
 }
 
+.exportProducts__button{
+  background-color: orange;
+}
+
 .exportProducts__headers{
   display: grid;
   grid-template-columns: repeat(5, minmax(0,1fr));

@@ -33,21 +33,22 @@ class App extends React.Component {
                     </article>
                 </Route>
 
-                <Route path="/export-products">
-                    <article className="pageLayout">
-                        <Sidebar className="u-grid-area-sidebar" />
-                        <ExportProducts
-                            className="Grid"
-                        />
-                    </article>
-                </Route>
 
-                <Route path="/products">
+                <Route path="/products" exact>
                     <article className="pageLayout">
                         <Sidebar className="u-grid-area-sidebar" />
                         <ProductPage
                             className="Grid u-grid-area-content u-list-style"
                             UserButtonClicked={this.UserButtonClicked}
+                        />
+                    </article>
+                </Route>
+
+                <Route path="/products/export">
+                    <article className="pageLayout">
+                        <Sidebar className="u-grid-area-sidebar" />
+                        <ExportProducts
+                            className="Grid"
                         />
                     </article>
                 </Route>
