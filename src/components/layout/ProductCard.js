@@ -11,6 +11,8 @@ const ProductCard = (props) => {
   const localhost = "http://127.0.0.1:8000/";
   const [inCart, setInCart] = useState(false);
 
+  
+  console.log(props.product.rule)
   const cardClickHandler = () => {
     // Inverts state based on user interaction
     setInCart(inCart => !inCart);
@@ -19,6 +21,10 @@ const ProductCard = (props) => {
     console.log(props.product.id);
     props.onChange(props.product.id, action);
   };
+
+  const ruleDisplay = () => {
+    const rule = props.product.rule;
+  }
   
 
   return (
@@ -46,6 +52,11 @@ const ProductCard = (props) => {
           />
         </figure>
         <p className="productCard__description">{props.product.description}</p>
+      </section>
+      <section className="productCard__rules">
+        <p className="productCard__rule">
+          {props.product.rule === null ? "Geen jaarlijk of persoonsgebonden limiet." : props.product.rule.description}
+        </p>
       </section>
       {/* TODO: Add Rule Section to display product rule. */} 
       <OrderButton

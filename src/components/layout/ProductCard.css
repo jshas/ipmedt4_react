@@ -6,7 +6,7 @@
 
 .productCard {
     position: relative;
-    height: 60rem;
+    height: 70rem;
     width: 100%;
     min-width: 30rem;
     background-color: var(--c-white);
@@ -95,5 +95,29 @@
     margin: 0 auto;
 }
 
+.productCard__rules{
+    height: 15%;    
+    position: absolute;
+    bottom: 6rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    
+    background-color: var(--c-light-grey);
+}
+
+.productCard__rule{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    width: 90%;
+    margin: 0 auto;
+
+}
 
 

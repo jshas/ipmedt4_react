@@ -19,19 +19,19 @@
 }
 
 
-@media only screen and (max-width: 1800px){
+@media only screen and (max-width: 110rem){
   .productGrid{
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
-@media only screen and (max-width: 1500px){
+@media only screen and (max-width: 80rem){
   .productGrid{
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-@media only screen and (max-width: 1200px){
+@media only screen and (max-width: 60rem){
   .productGrid{
     grid-template-columns:  minmax(0,1fr);
   }
@@ -47,7 +47,7 @@
 .shoppingCart{
 
   position: relative;
-  height: 60rem;
+  height: 70rem;
   width: 100%;
   grid-column: span 1;
   background-color: var(--c-white);
