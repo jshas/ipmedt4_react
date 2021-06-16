@@ -19,22 +19,7 @@ const ProductCard = (props) => {
     console.log(props.product.id);
     props.onChange(props.product.id, action);
   };
-
-  // useEffect(() => {
-  //   // Functions used to send callback to update ProductPage state
-  //   const addProductToCartList = () => {
-  //     return console.log("Product should be added to cart now.")
-  //   };
-  //   const removeProductFromCartList = () => {
-  //     return console.log("Product should be removed from cart now.")
-  //   };
-  //   // Checks the current ProductCard inCart value to decide the next action.
-  //   const productAdded = inCart ? (true, addProductToCartList()) : (false, removeProductFromCartList());
-  // }, 
-  // [inCart]);
   
-
-
 
   return (
     <article className="productCard">
@@ -62,7 +47,7 @@ const ProductCard = (props) => {
         </figure>
         <p className="productCard__description">{props.product.description}</p>
       </section>
-      {/* TODO: Add Rule Section to display product rule. */}
+      {/* TODO: Add Rule Section to display product rule. */} 
       <OrderButton
         inCart={inCart}
         onClick={(e) => cardClickHandler(e.currentTarget)}

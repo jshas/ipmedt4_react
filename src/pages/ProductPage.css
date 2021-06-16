@@ -7,9 +7,8 @@
 
 .productGrid{
     /* External grid values for the App.css grid */
-    grid-column: 2 / span all;
+    grid-column: 2 / span all;    
     /* Internal grid values */
-
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     justify-items: stretch;
@@ -40,7 +39,8 @@
 
 /*
 |--------------------------------------------------------------------------
-|   ShoppingCart (test)
+|   ShoppingCart (Example of cartList)
+|   (NOT FOR PRODUCTION)
 |--------------------------------------------------------------------------
 */
 
