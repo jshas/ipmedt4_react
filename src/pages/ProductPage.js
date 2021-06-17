@@ -12,7 +12,6 @@ const ProductPage = (props) => {
     const [isLoading, setIsLoading] = useState(true);
     const [productsList, setProductsList] = useState([]);
     const [cartList, setCartList] = useState([]);
-    
 
     /* CART FUNCTIONS */
     const checkCartStatus = () => {
@@ -43,22 +42,21 @@ const ProductPage = (props) => {
         }
     };
 
-
-  // Fetches the product API once when the component is mounted
-  useEffect(() => {
-    const BASE_URL = "http://localhost:8000/api/products/";
-    api()
-      .get('/api/products')
-      .then((res) => {
-        setIsLoading(false);
-        setProductsList(res.data);
-        checkCartStatus();
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-    // getProducts();
-  },[]);
+    // Fetches the product API once when the component is mounted
+    useEffect(() => {
+        const BASE_URL = "http://localhost:8000/api/products/";
+        api()
+            .get("/api/products")
+            .then((res) => {
+                setIsLoading(false);
+                setProductsList(res.data);
+                checkCartStatus();
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+        // getProducts();
+    }, []);
 
     // Mapping of fetched API products to list.
     const products = productsList.map((product) => {
