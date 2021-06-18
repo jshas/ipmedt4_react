@@ -75,9 +75,18 @@ class ExportProducts extends React.Component {
 
 ////////////////////////////////////// exporteer functie
   exporteer = () =>{
+
+    let today = new Date();
+    let dd = String(today.getDate()).padStart(2, '0');
+    let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    let yyyy = today.getFullYear();
+
+    today = dd + '/' + mm + '/' + yyyy;
+    // console.log(today);
+
     var data = this.state.orderList;
 
-    var csv = 'Orderlijst\n';
+    var csv = 'Orderlijst ' + today + '\n';
 
     csv += "Product";
     csv += ";";
@@ -123,11 +132,11 @@ class ExportProducts extends React.Component {
       // sub_category model brand category quantity price/100 first_name last_name created_at
     }
 
-    console.log(csv);
+    // console.log(csv);
     var hiddenElement = document.createElement('a');
     hiddenElement.href = 'data:text/csv;charset=utf-8,' + encodeURI(csv);
     hiddenElement.target = '_blank';
-    hiddenElement.download = 'Orderlijst.csv';
+    hiddenElement.download = 'Orderlijst_' + today + '.csv';
     hiddenElement.click();
   }
 
