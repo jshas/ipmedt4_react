@@ -7,7 +7,7 @@
 nav {
     font-size: 24px;
     height: 100vh;
-    max-width: 24rem;
+    max-width: 100%;
     position: fixed;
     background-color: #3c4648;
     font-family: "Roboto Slab", "Tahoma", sans-serif;

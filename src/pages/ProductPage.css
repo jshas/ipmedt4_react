@@ -4,7 +4,6 @@
 |--------------------------------------------------------------------------
 */
 
-
 .productGrid{
     /* External grid values for the App.css grid */
     grid-column: 2 / span all;    
@@ -16,8 +15,19 @@
     gap: 4rem;
     margin: 5rem;  
     transition: 1s all;
+    padding-top: 100px;
 }
 
+.searchbar{
+  background-color: white;
+  width: 70vw;
+  height: 10vh;
+  position: absolute;
+  margin-top: 10px;;
+  right: 5%;
+  font-size: 28px;
+  padding-left: 10px;
+}
 
 @media only screen and (max-width: 1800px){
   .productGrid{
