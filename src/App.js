@@ -10,6 +10,7 @@ import LoginPage from "./pages/LoginPage";
 import withAuth from "./components/withAuth";
 import ExportProducts from "./pages/ExportProducts";
 import AddUsers from "./components/layout/AddUsers";
+import AddProducts from "./components/layout/AddProducts";
 
 /* CSS imports */
 import "./App.css";
@@ -35,12 +36,10 @@ class App extends React.Component {
                 </Route>
 
                 <Route path="/users/add">
-                    <AddUsers />
-
-                    {/* <article className="pageLayout">
+                    <article className="pageLayout">
                         <Sidebar className="u-grid-area-sidebar" />
-                        <AddUsers className="Grid u-grid-area-content" />
-                    </article> */}
+                        <AddUsers className="Grid" />
+                    </article>
                 </Route>
 
                 <Route path="/products" exact>
@@ -57,6 +56,13 @@ class App extends React.Component {
                     <article className="pageLayout">
                         <Sidebar className="u-grid-area-sidebar" />
                         <ExportProducts className="Grid" />
+                    </article>
+                </Route>
+
+                <Route path="/products/add">
+                    <article className="pageLayout">
+                        <Sidebar className="u-grid-area-sidebar" />
+                        <AddProducts className="Grid" />
                     </article>
                 </Route>
 

@@ -19,14 +19,6 @@ const AddUsers = () => {
         role: "",
         department: "",
     });
-    const departmentsList = ["Controlling", "IT", "Marketing"];
-    const rolesList = ["Gebruiker", "Manager"];
-
-    /*
-     *
-     *       Nog niet helemaal werkend
-     *
-     */
 
     // const [departments, setDepartments] = useState([]);
     // const [roles, setRoles] = useState([]);
@@ -39,7 +31,6 @@ const AddUsers = () => {
     //                 console.log(res.data.error);
     //             } else {
     //                 setDepartments(res.data);
-    //                 console.log(departments);
     //             }
     //         });
 
@@ -50,7 +41,6 @@ const AddUsers = () => {
     //                 console.log(res.data.error);
     //             } else {
     //                 setRoles(res.data);
-    //                 console.log(roles);
     //             }
     //         });
     // }, []);
