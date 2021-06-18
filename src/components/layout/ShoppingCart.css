@@ -1,4 +1,6 @@
 .shoppingCart{
+    display: flex;
+    flex-flow: column nowrap;
     position: relative;
     height: 70rem;
     width: 100%;
@@ -9,8 +11,7 @@
     transition: 0.2s all;
     padding: 2rem;
     font-size: 2rem;
-    display: flex;
-    flex-flow: column nowrap;
+
     overflow-y: scroll;
     
     z-index: 112;

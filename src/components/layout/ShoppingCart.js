@@ -12,7 +12,9 @@ const ShoppingCart = (props) => {
   const cartItems = props.itemList.map((item) => {
     return (
         <li className="shoppingCart__row" key={item.toString()}>
-          {item}
+          <p>{item.brand}</p>
+          <p>{item.model}</p>
+          <p>{item.price / 100}</p>
         </li>
     )
 });
@@ -25,7 +27,7 @@ const ShoppingCart = (props) => {
         <h2>Winkelwagen</h2>
         <p>Wie niet wagent, wie niet winkelt.</p>
         <div className="u-separator"></div>
-        <ul>{props.cartItems}</ul>
+        <ul>{cartItems}</ul>
       </section>
     </>
   );
