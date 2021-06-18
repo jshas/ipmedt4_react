@@ -3,10 +3,33 @@
   grid-column: 2 / span all;
   list-style: none;
   padding: 0.5rem;
+  width: 90%;
+}
+
+.exportProducts__header{
+  margin: 2rem auto;
+  font-size: 3.6rem;
+  font-family: var(--font-family-heading);
 }
 
 .exportProducts__button{
-  background-color: orange;
+  background-color: #ffb900;
+  cursor: pointer;
+  box-shadow: 0.1rem 0.3rem 0.3rem;
+  display: block;
+  font-size: 2.8rem;
+  margin: 2rem 0;
+  padding: 0.5rem;
+  font-family: var(--font-family-paragraph);
+}
+
+.exportProducts__button:hover{
+  background-color: #ffd053;
+}
+
+.exportProducts__button:active{
+  font-weight: 600;
+  box-shadow: none;
 }
 
 .exportProducts__headers{
@@ -23,6 +46,7 @@
 
 .exportProducts__orderlist__listItem__text{
   padding-left: 0.5rem;
+  font-family: var(--font-family-paragraph);
 }
 
 

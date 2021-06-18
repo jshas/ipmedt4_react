@@ -108,6 +108,7 @@ class ExportProducts extends React.Component {
 
     return(
     <section className="exportProducts">
+      <h1 className="exportProducts__header">Hier staan alle orders</h1>
       <button className="exportProducts__button" type="button" onClick={this.exporteer}>Exporteer als .csv</button>
 
       <ul className="exportProducts__headers">
