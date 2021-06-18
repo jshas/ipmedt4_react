@@ -14,15 +14,14 @@ import "./ExportProducts.css";
 class ExportProducts extends React.Component {
   state = { orderList: [] };
   orders = [];
-  naam="Hasko";
 
-
+////////////////////////////////////// initial API call
   componentDidMount() {
       this.getOrders();
   }
 
   getOrders = () => {
-      const BASE_URL = "http://127.0.0.1:8000/api/order/all";
+      const BASE_URL = "http://127.0.0.1:8000/api/order/7dagen";
       api().get(BASE_URL).then((res) => {
           // console.log(res.data[0].price);
           this.setState({ orderList: res.data });
@@ -32,6 +31,49 @@ class ExportProducts extends React.Component {
   };
 
 
+
+
+
+////////////////////////////////////// verander filter functie
+  veranderFilter = (event) => {
+    this.changeOrderList(event.target.value);
+  }
+
+
+  changeOrderList = (value) => {
+    const BASE_URL_UPDATE = "http://127.0.0.1:8000/api/order/";
+    // console.log(value);
+
+    if (value == "7 dagen") {
+      api().get(BASE_URL_UPDATE + "7dagen").then((res) => {
+          this.setState({ orderList: res.data });
+      });
+    }
+
+    else if (value == "14 dagen") {
+      api().get(BASE_URL_UPDATE + "14dagen").then((res) => {
+          this.setState({ orderList: res.data });
+      });
+    }
+
+    else if (value == "Huidige jaar") {
+      api().get(BASE_URL_UPDATE + "ditjaar").then((res) => {
+          this.setState({ orderList: res.data });
+      });
+    }
+
+    else if (value == "Alles") {
+      api().get(BASE_URL_UPDATE + "all").then((res) => {
+          this.setState({ orderList: res.data });
+      });
+    }
+
+  }
+
+
+
+
+////////////////////////////////////// exporteer functie
   exporteer = () =>{
     var data = this.state.orderList;
 
@@ -92,7 +134,7 @@ class ExportProducts extends React.Component {
 
 
 
-
+////////////////////////////////////// render
   render(){
     this.orders = this.state.orderList.map((order) => {
         return (
@@ -110,6 +152,14 @@ class ExportProducts extends React.Component {
     <section className="exportProducts">
       <h1 className="exportProducts__header">Hier staan alle orders</h1>
       <button className="exportProducts__button" type="button" onClick={this.exporteer}>Exporteer als .csv</button>
+
+      <label className="exportProducts__label" for="cars">Filter:</label>
+      <select onChange={this.veranderFilter} className="exportProducts__select" id="orderFilters">
+        <option value="7 dagen">Afgelopen 7 dagen</option>
+        <option value="14 dagen">Afgelopen 14 dagen</option>
+        <option value="Huidige jaar">Alles van het huidige jaar</option>
+        <option value="Alles">Alles</option>
+      </select>
 
       <ul className="exportProducts__headers">
         <h2 className="u-border-bottom-black">Product</h2>
