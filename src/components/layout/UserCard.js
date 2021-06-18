@@ -21,11 +21,11 @@ const UserCard = (props) => {
             </h1>
             <h2 className="userCard__rol">{props.value.department}</h2>
 
-            <section className="userCard__btnSection">
+            {/*<section className="userCard__btnSection">
                 <button className="userCard__btnSection__button">
                     Overzicht
                 </button>
-            </section>
+            </section>*/}
         </section>
     );
 };
