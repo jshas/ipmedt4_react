@@ -159,16 +159,22 @@ class ExportProducts extends React.Component {
 
     return(
     <section className="exportProducts">
-      <h1 className="exportProducts__header">Hier staan alle orders</h1>
-      <button className="exportProducts__button" type="button" onClick={this.exporteer}>Exporteer als .csv</button>
+      <h1 className="exportProducts__header">Bestellingen van Medewerkers</h1>
 
-      <label className="exportProducts__label" for="cars">Filter:</label>
-      <select onChange={this.veranderFilter} className="exportProducts__select" id="orderFilters">
-        <option value="7 dagen">Afgelopen 7 dagen</option>
-        <option value="14 dagen">Afgelopen 14 dagen</option>
-        <option value="Huidige jaar">Alles van het huidige jaar</option>
-        <option value="Alles">Alles</option>
-      </select>
+      <ul className="exportProducts--eventSection">
+
+        <li>
+          <label className="exportProducts__label" for="orderFilters">Selecteer periode:</label>
+          <select onChange={this.veranderFilter} className="exportProducts__select" id="orderFilters">
+            <option value="7 dagen">Afgelopen 7 dagen</option>
+            <option value="14 dagen">Afgelopen 14 dagen</option>
+            <option value="Huidige jaar">Alles van het huidige jaar</option>
+            <option value="Alles">Alles</option>
+          </select>
+        </li>
+
+        <li><button className="exportProducts__button" type="button" onClick={this.exporteer}>Exporteer als .csv</button></li>
+      </ul>
 
       <ul className="exportProducts__headers">
         <h2 className="u-border-bottom-black">Product</h2>

@@ -7,9 +7,29 @@
 }
 
 .exportProducts__header{
-  margin: 2rem auto;
+  margin: 2rem auto 1rem;
   font-size: 3.6rem;
   font-family: var(--font-family-heading);
+}
+
+.exportProducts--eventSection{
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+}
+
+.exportProducts--eventSection > li {
+  align-self: center;
+}
+
+.exportProducts__label{
+  font-size: 2.4rem;
+
+  margin-right: 2rem;
+}
+
+.exportProducts__select{
+  font-size: 2rem;
 }
 
 .exportProducts__button{
@@ -17,7 +37,7 @@
   cursor: pointer;
   box-shadow: 0.1rem 0.3rem 0.3rem;
   display: block;
-  font-size: 2.8rem;
+  font-size: 2.4rem;
   margin: 2rem 0;
   padding: 0.5rem;
   font-family: var(--font-family-paragraph);
