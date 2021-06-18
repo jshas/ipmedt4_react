@@ -1,5 +1,5 @@
 /* External Imports */
-import React, { useState, useEffect, useReducer } from "react";
+import React, { useState, useEffect } from "react";
 
 /* Internal Imports*/
 import api from "../util/api";
@@ -12,15 +12,10 @@ import "./ProductPage.css";
 const ProductPage = (props) => {
     const [isLoading, setIsLoading] = useState(true);
     const [productsList, setProductsList] = useState([]);
-    const [cartList, setCartList] = useState([]);
+    const [cartList, setCartList] = useState([]); 
     
 
     /* CARTLIST FUNCTIONS */
-    const checkCartStatus = () => {
-        if (isLoading === false) {
-        }
-    };
-
     const addProductToCart = (productId) => {
         // console.log([...cartList, productId]);
         if (cartList === []) {
@@ -52,6 +47,7 @@ const ProductPage = (props) => {
       .then((res) => {
         setIsLoading(false);
         setProductsList(res.data[0]);
+        console.log(res.data[1]); // user_id from laravel
       })
       .catch((err) => {
         console.log(err);
@@ -71,7 +67,7 @@ const ProductPage = (props) => {
                     }
                 />
             </li>
-        );
+        )
     });
 
     // Maps items to the cartItems Array.
@@ -85,7 +81,9 @@ const ProductPage = (props) => {
     return (
         <>
             <ul className="productGrid">
-                <li className="shoppingCart"></li>      {/* This shoppingcart displays a test for productId's.  */}
+                <li className="shoppingCart">
+                    <ShoppingCart itemList={cartList}  />
+                </li>      {/* This shoppingcart displays a test for productId's.  */}
                 {products}                              {/*<- Display all items in the itemlist in a <li>*/}
             </ul>
         </>
