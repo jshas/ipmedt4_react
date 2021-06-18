@@ -14,51 +14,48 @@ import ExportProducts from "./pages/ExportProducts";
 import "./App.css";
 
 class App extends React.Component {
-    render() {
-        return (
-            <Switch>
-                <Route path="/" exact>
-                    <article className="pageLayout">
-                        <Sidebar className="u-grid-area-sidebar" />
-                    </article>
-                </Route>
+  render() {
+    return (
+      <Switch>
+        <Route path="/" exact>
+          <article className="pageLayout">
+            <Sidebar className="u-grid-area-sidebar" />
+          </article>
+        </Route>
 
-                <Route path="/users">
-                    <article className="pageLayout">
-                        <Sidebar className="u-grid-area-sidebar" />
-                        <UserPage
-                            className="Grid"
-                            UserButtonClicked={this.UserButtonClicked}
-                        />
-                    </article>
-                </Route>
+        <Route path="/users">
+          <article className="pageLayout">
+            <Sidebar className="u-grid-area-sidebar" />
+            <UserPage
+              className="Grid"
+              UserButtonClicked={this.UserButtonClicked}
+            />
+          </article>
+        </Route>
 
+        <Route path="/products" exact>
+            <article className="pageLayout">
+              <Sidebar className="u-grid-area-sidebar" />
+              <ProductPage
+                className="Grid u-grid-area-content u-list-style"
+                UserButtonClicked={this.UserButtonClicked}
+              />
+            </article>
+        </Route>
 
-                <Route path="/products" exact>
-                    <article className="pageLayout">
-                        <Sidebar className="u-grid-area-sidebar" />
-                        <ProductPage
-                            className="Grid u-grid-area-content u-list-style"
-                            UserButtonClicked={this.UserButtonClicked}
-                        />
-                    </article>
-                </Route>
+        <Route path="/products/export">
+          <article className="pageLayout">
+            <Sidebar className="u-grid-area-sidebar" />
+            <ExportProducts className="Grid" />
+          </article>
+        </Route>
 
-                <Route path="/products/export">
-                    <article className="pageLayout">
-                        <Sidebar className="u-grid-area-sidebar" />
-                        <ExportProducts
-                            className="Grid"
-                        />
-                    </article>
-                </Route>
-
-                <Route path="/login">
-                    <LoginPage />
-                </Route>
-            </Switch>
-        );
-    }
+        <Route path="/login">
+          <LoginPage />
+        </Route>
+      </Switch>
+    );
+  }
 }
 
 export default App;

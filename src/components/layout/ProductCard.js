@@ -11,14 +11,11 @@ const ProductCard = (props) => {
   const localhost = "http://127.0.0.1:8000/";
   const [inCart, setInCart] = useState(false);
 
-  
-  console.log(props.product.rule)
   const cardClickHandler = () => {
     // Inverts state based on user interaction
     setInCart(inCart => !inCart);
     // This is passed on to the parent component
     let action = inCart ? 'remove' : 'add';
-    console.log(props.product.id);
     props.onChange(props.product.id, action);
   };
 
@@ -58,7 +55,6 @@ const ProductCard = (props) => {
           {props.product.rule === null ? "Geen jaarlijk of persoonsgebonden limiet." : props.product.rule.description}
         </p>
       </section>
-      {/* TODO: Add Rule Section to display product rule. */} 
       <OrderButton
         inCart={inCart}
         onClick={(e) => cardClickHandler(e.currentTarget)}

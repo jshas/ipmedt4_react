@@ -4,6 +4,7 @@ import React, { useState, useEffect, useReducer } from "react";
 /* Internal Imports*/
 import api from "../util/api";
 import ProductCard from "../components/layout/ProductCard";
+import ShoppingCart from  "../components/layout/ShoppingCart";
 
 /* CSS Imports*/
 import "./ProductPage.css";
@@ -14,7 +15,7 @@ const ProductPage = (props) => {
     const [cartList, setCartList] = useState([]);
     
 
-    /* CART FUNCTIONS */
+    /* CARTLIST FUNCTIONS */
     const checkCartStatus = () => {
         if (isLoading === false) {
         }
@@ -46,13 +47,11 @@ const ProductPage = (props) => {
 
   // Fetches the product API once when the component is mounted
   useEffect(() => {
-    const BASE_URL = "http://localhost:8000/api/products/";
     api()
       .get('/api/products')
       .then((res) => {
         setIsLoading(false);
-        setProductsList(res.data);
-        checkCartStatus();
+        setProductsList(res.data[0]);
       })
       .catch((err) => {
         console.log(err);
@@ -75,33 +74,22 @@ const ProductPage = (props) => {
         );
     });
 
-    const cartItems = cartList.map((itemId) => {
-        return (
-            <li className="shoppingCart__row" key={itemId.toString()}>
-                <p className="shoppingCard__index">{itemId}</p>
-                <p>{productsList[itemId - 1].brand}</p>
-                <p>{productsList[itemId - 1].model}</p>
-                <p>{"€" + productsList[itemId - 1].price / 100}</p>
-            </li>
-        );
-    });
+    // Maps items to the cartItems Array.
+    /* TODO:
+        1. functie schrijven die enkel de items in de cart met product informatie naar de shoppigncart stuurt.
+    */
+
+
+
 
     return (
         <>
             <ul className="productGrid">
-                {/* This shoppingcart displays a test for productId's.  */}
-                <li className="shoppingCart">
-                    <section>
-                        <h2>Winkelwagen</h2>
-                        <p>Wie niet wagent, wie niet winkelt.</p>
-                        <div className="u-separator"></div>
-                        <ul>{cartItems}</ul>
-                    </section>
-                </li>
-                {products}
+                <li className="shoppingCart"></li>      {/* This shoppingcart displays a test for productId's.  */}
+                {products}                              {/*<- Display all items in the itemlist in a <li>*/}
             </ul>
         </>
-    );
+    )
 };
 
 export default ProductPage;
