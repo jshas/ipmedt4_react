@@ -9,11 +9,12 @@ import ShoppingCart from "../components/layout/ShoppingCart";
 /* CSS Imports*/
 import "./ProductPage.css";
 
+
 const ProductPage = (props) => {
   const [isLoading, setIsLoading] = useState(true);
   const [productsList, setProductsList] = useState([]);
   const [cartList, setCartList] = useState([]);
-  const itemList = [];
+  const [user, setUser] = useState(-1);
 
   /* CARTLIST FUNCTIONS */
   const addProductToCart = (productId) => {
@@ -46,7 +47,7 @@ const ProductPage = (props) => {
       .then((res) => {
         setIsLoading(false);
         setProductsList(res.data[0]);
-        console.log(res.data[1]); // user_id from laravel
+        setUser(res.data[1]);
       })
       .catch((err) => {
         console.log(err);
@@ -76,8 +77,8 @@ const ProductPage = (props) => {
   return (
     <>
       <ul className="productGrid">
-        <li className="shoppingCart">
-          <ShoppingCart itemList={cartItems} />
+        <li className="u-list-style-none">
+          <ShoppingCart userId={user} itemId={cartList} itemList={cartItems} />
         </li>
         {products}
       </ul>

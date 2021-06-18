@@ -5,14 +5,15 @@
 */
 
 .button {
-    width: 4rem;
-    height: 4rem;
+    width: 14rem;
+    height: 7rem;
     font-family: var(--font-family-heading);
     font-size: 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: var(--c-primary-button);
+    
 }
 
 .button:disabled{
@@ -20,9 +21,12 @@
 }
 
 
-
 .button:hover {
     background-color: var(--c-primary-button-hover);
+}
+
+.button:active{
+    border: 0.2rem solid black; 
 }
 
 /* OrderButton */
