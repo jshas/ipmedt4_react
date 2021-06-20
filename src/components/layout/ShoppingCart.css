@@ -1,0 +1,179 @@
+.shoppingCart {
+  display: flex;
+  flex-flow: column nowrap;
+  position: relative;
+  height: 75rem;
+  width: 100%;
+  min-width: 30rem;
+  justify-self: center;
+  font-family: var(--font-family-paragraph);
+  box-shadow: 0.2rem 0.2rem 1rem 0.1rem rgba(0, 0, 0, 0.58);
+  transition: 0.2s all;
+  font-size: 2rem;
+
+  overflow-y: hide;
+
+  z-index: 112;
+  background-color: var(--c-white);
+}
+
+.shoppingCart__header {
+  height: 10%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: start;
+}
+
+.shoppingCart__heading {
+  font-size: 3rem;
+  padding-left: 1rem;
+  padding-top: 1rem;
+
+}
+
+.shoppingCart__heading::first-letter {
+  color: var(--c-accent-red);
+}
+
+/* <ul> container for .shoppingCart__rows */
+.shoppingCart__body {
+  overflow-y: scroll;
+  margin-top: 2rem;
+  height: 77.7%;
+  border-bottom: 2rem solid var(--c-primary-bg);
+}
+
+/* <li> single cart row */
+
+/* cartRow -> Single row in the shoppingCart */
+.cartRow{
+  background-color: var(--c-primary-bg);
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.cartRow__header{
+  width: 100%;
+  font-size: 1.8rem;
+  background-color: var(--c-secondary-bg);
+}
+.cartRow__heading{
+  color:var(--c-white);
+
+  padding-left: 1rem;
+}
+.cartRow__body{
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 2rem;
+  justify-content: space-between;
+  gap: 2rem;
+  align-items: start;
+  margin: 4rem 0;
+  padding: 0 2rem;
+  width: 100%;
+}
+
+.cartRow__name{
+  display: block;
+  height: 2rem;
+  width: 75%;
+  font-size: 2rem;
+}
+
+.cartRow__price{
+  align-self: flex-start;
+  width: 25%;
+
+}
+
+
+
+/* Buttons Section */
+.buttons {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  background-color: var(--c-primary-bg);
+  width: 97%;
+  height: 10%;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.button {
+  height: 100%;
+  width: 49%;
+  padding: 1rem;
+  border: none;
+  display: flex;
+  align-items: center;
+
+
+  font-family: var(--font-family-heading);
+  font-size: 1.8rem;
+
+  justify-content: center;
+
+  background-color: var(--c-primary-button);
+  transition: 0.2s transform ease-out;
+  transition: 0.4s background-color linear;
+}
+
+.button:hover {
+  cursor: pointer;
+}
+
+.button:active {
+  transform: translateY(0.5rem);
+  transform: skewY(10% 10%);
+}
+
+.button:disabled {
+  color: var(--c-primary-button-disabled);
+}
+
+.button:hover {
+  background-color: var(--c-primary-button-hover);
+}
+
+.button:active {
+  background-color: var(--c-confirmation-button);
+}
+
+.button--reset {
+  background-color: var(--c-cancel-button);
+}
+.button--reset:hover {
+  background-color: var(--c-cancel-button-hover);
+}
+.button--confirmation {
+  background-color: var(--c-confirmation-button);
+}
+.button--confirmation:hover {
+  background-color: var(--c-confirmation-button-hover);
+}
+
+
+.cartRow__button{
+  width: 100%;
+  height: 15%;
+  padding: 1rem;
+}
+
+/* Utility Classes */
+.u-separator {
+  content: "";
+  display: block;
+  background-color: var(--c-accent-red);
+  height: 2rem;
+  width: 90%;
+}

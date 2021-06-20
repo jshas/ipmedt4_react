@@ -5,20 +5,20 @@
 */
 
 .button {
-    width: 4rem;
-    height: 4rem;
+    width: 14rem;
+    height: 7rem;
     font-family: var(--font-family-heading);
     font-size: 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: var(--c-primary-button);
+    
 }
 
 .button:disabled{
     color: var(--c-primary-button-disabled);
 }
-
 
 
 .button:hover {
