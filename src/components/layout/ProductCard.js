@@ -1,5 +1,5 @@
 /* External imports */
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 /* Internal imports */
 import OrderButton from "./OrderButton";
@@ -9,20 +9,14 @@ import "./ProductCard.css";
 
 const ProductCard = (props) => {
   const localhost = "http://127.0.0.1:8000/";
-  const [inCart, setInCart] = useState(false);
 
-  const cardClickHandler = () => {
-    // Inverts state based on user interaction
-    setInCart(inCart => !inCart);
+  const inCartToggleHandler = () => {
+    // {Props version}
     // This is passed on to the parent component
-    let action = inCart ? 'remove' : 'add';
-    props.onChange(props.product.id, action);
+    let action = props.inCart ? "remove" : "add"; // If the product is inCart send a remove message.
+    console.log(props.product.id, action);
+    props.updateCart(props.product.id, action);
   };
-
-  const ruleDisplay = () => {
-    const rule = props.product.rule;
-  }
-  
 
   return (
     <article className="productCard">
@@ -50,21 +44,24 @@ const ProductCard = (props) => {
         </figure>
         <p className="productCard__description">{props.product.description}</p>
       </section>
-      <section className="productCard__rules">
-        <p className="productCard__rule">
-          {props.product.rule === null ? "Geen jaarlijk of persoonsgebonden limiet." : props.product.rule.description}
-        </p>
+      {/* If there is no rule for this product, the product rule section is not rendered.*/}
+      {props.product.rule !== null ? (
+        <section className="productCard__rules">
+          <p className="productCard__rule">{props.product.rule.description}</p>
+        </section>
+      ) : null}
+      {/* The OrderButton component updates the productsList state through callback functions.*/}
+      <section className="productCard__buttons">
+        <OrderButton
+          inCart={props.inCart}
+          onClick={(e) => inCartToggleHandler(e.currentTarget)}
+        />
       </section>
-      <OrderButton
-        inCart={inCart}
-        onClick={(e) => cardClickHandler(e.currentTarget)}
-      />
     </article>
   );
 };
 
 export default ProductCard;
 
-
-// Code written to send update action from productCard. 
+// Code written to send update action from productCard.
 // Current code checks the inCart value passed to productpage and updates there.
