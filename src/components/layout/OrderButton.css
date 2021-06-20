@@ -6,6 +6,7 @@
     font-size: 2rem;
     border: none;
     transition: 0.2s transform ease-out;
+    transition: 0.4s background-color linear;
 }
 
 .orderButton:hover{
@@ -27,8 +28,13 @@
     background-color: var(--c-primary-button-hover);
 }
 
-.orderButton--remove{
-    background-color: var(--c-cancel-button);
+.orderButton--added{
+    background-color: var(--c-confirmation-button);
+    
+}
+
+.orderButton--added:hover{
+    background-color: var(--c-confirmation-button-hover);
     /* color: var(--c-dark-font); */
 }
 

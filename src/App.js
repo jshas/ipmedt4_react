@@ -7,7 +7,6 @@ import Sidebar from "./components/layout/Sidebar";
 import UserPage from "./pages/UserPage";
 import ProductPage from "./pages/ProductPage";
 import LoginPage from "./pages/LoginPage";
-import withAuth from "./components/withAuth";
 import ExportProducts from "./pages/ExportProducts";
 
 /* CSS imports */
