@@ -1,5 +1,5 @@
 /* External imports */
-import React from "react";
+import React, { useEffect } from "react";
 
 /* Internal imports */
 import OrderButton from "./OrderButton";
@@ -9,6 +9,7 @@ import "./ProductCard.css";
 
 const ProductCard = (props) => {
   const localhost = "http://127.0.0.1:8000/";
+  let orderInformation = "";
 
   const inCartToggleHandler = () => {
     // {Props version}
@@ -17,6 +18,27 @@ const ProductCard = (props) => {
     console.log(props.product.id, action);
     props.updateCart(props.product.id, action);
   };
+
+  // const checkRule = () =>{
+  //   switch(props.rule.id){
+  //     case 1:
+  //       if(props.ordered  = 
+  //       break;
+  //     case 2:
+  //       //
+  //       break;
+  //     default:
+  //       if(props.ordered === 0){
+  //         orderInformation = "U heeft dit product niet eerder besteld."
+  //       }
+  //       else{
+  //         orderInformation = {"U heeft dit product: " + {props.ordered} + "keer eerder besteld."}
+  //       }
+        
+  //   }
+  // }
+
+ 
 
   return (
     <article className="productCard">
@@ -31,26 +53,44 @@ const ProductCard = (props) => {
           {props.product.brand || "Brand"} {props.product.model || "Model"}
         </h2>
       </header>
-      <section className="ProductCard__body">
-        <figure className="productCard__figure">
-          <img
-            className="productCard__img"
-            src={
-              localhost + props.product.img_path ||
-              localhost + "public/img/placeholder.png"
-            }
-            alt={props.product.img_alt}
-          />
-        </figure>
+
+      <figure className="productCard__figure">
+        <img
+          className="productCard__img"
+          src={
+            localhost + props.product.img_path ||
+            localhost + "public/img/placeholder.png"
+          }
+          alt={props.product.img_alt}
+        />
+      </figure>
+      <section className="productCard__textArea ">
         <p className="productCard__description">{props.product.description}</p>
+        
+        {/* This part conditionally renders the rule and the user amount ordered. */}
+        {props.product.rule !== null ? (
+          <section className="productCard__orderInformation ">
+            <p className="productCard__rule ">
+              {props.product.rule.description}
+            </p>
+            <p className="productCard__ordered ">
+              {props.ordered > 0
+                ? "Aantal keer besteld: " + props.ordered
+                : "U heeft dit product niet eerder besteld."}
+            </p>
+          </section>
+        ) : (
+          <section className="productCard__orderInformation ">
+            <p className="productCard__ordered ">
+              {props.ordered > 0
+                ? "Aantal keer besteld: " + props.ordered
+                : "U heeft dit product niet eerder besteld."}
+            </p>
+          </section>
+        )}
+
       </section>
-      {/* If there is no rule for this product, the product rule section is not rendered.*/}
-      {props.product.rule !== null ? (
-        <section className="productCard__rules">
-          <p className="productCard__rule">{props.product.rule.description}</p>
-        </section>
-      ) : null}
-      {/* The OrderButton component updates the productsList state through callback functions.*/}
+      {/* The OrderButton component updates the productsList state (in the ProductsPage component) through callback functions.*/}
       <section className="productCard__buttons">
         <OrderButton
           inCart={props.inCart}
