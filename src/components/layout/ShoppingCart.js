@@ -8,30 +8,41 @@ import api from "../../util/api";
 
 /* CSS imports */
 import "./ShoppingCart.css";
-import "./Button.css";
+
 
 const ShoppingCart = (props) => {
+  // Function to add zeroes to price after dividing  € cents integer by 100
+  const addTwoDecimals = (num) => {
+    return Number.parseFloat(num).toFixed(2);
+  };
 
-  // Function to add zeroes to 
-  const addZeroes = (num) => {
-    num = String(num);
-    const dec = num.split('.')[1]
-    const len = dec && dec.length > 2 ? dec.length : 2
-    Number(num).toFixed(len)
-    return num;
-  }
-
-  
-  // TODO:
-  // a) Shoppingcart laat een lijst met producten zien == ProductRow
-  const [confirmationResponse, setConfirmationResponse] = useState([]); // TODO: Checken of dit een state moet zijn
+  //TODO: Responses weergeven na bevestigen order
+  const [confirmationResponse, setConfirmationResponse] = useState([]);
 
   const productRows = props.cartItems.map((item) => {
     return (
-      <li className="u-list-style-none shoppingCart__row" key={item.id.toString()}>
-        <p>{item.brand}</p>
-        <p>{item.model}</p>
-        <p>{((item.price / 100) % 1) ? addZeroes((item.price/100)) : addZeroes((item.price/100))}</p>
+      <li className="u-list-style-none" key={item.id.toString()}>
+        <section className="cartRow">
+          <section className="cartRow__header">
+            <h2 className="cartRow__heading">{item.sub_category}</h2>
+          </section>
+          <section className="cartRow__body">
+            <p className="cartRow_name">{item.brand}{" "}{item.model}</p>
+            <p className="cartRow__price">
+              {/* Checks if int/100 returns decimals, ads ze*/}
+              {"€" + addTwoDecimals(item.price / 100)}
+            </p>
+
+          </section>
+          <button
+            className="button button--reset cartRow__button "
+            type="button"
+            value={item.id}
+            onClick={(event) => props.removeItem(event.currentTarget.value)}
+          >
+            Verwijder Product
+          </button>
+        </section>
       </li>
     );
   });
@@ -39,6 +50,7 @@ const ShoppingCart = (props) => {
   // Deze functie post een array van gekozen productenid's naar Laravel (backend)
   const orderItems = () => {
     let productIds = props.cartItems.map((item) => item.id); // only return the productIds so they can be posted to the backend;
+    console.log(productIds);
     let userId = props.userId; // retrieve the aut
     api()
       .get("/sanctum/csrf-cookie")
@@ -52,6 +64,7 @@ const ShoppingCart = (props) => {
             (response) => {
               setConfirmationResponse(response.data);
               console.log([...confirmationResponse]);
+              props.resetCart();
             },
             (error) => {
               console.log("Posten van de order:", error);
@@ -64,24 +77,28 @@ const ShoppingCart = (props) => {
     <>
       <article className="shoppingCart">
         <section className="shoppingCart__header">
-          <h2>Winkelwagen</h2>
+          <h2 className="shoppingCart__heading">Winkelwagen</h2>
           <div className="u-separator"></div>
         </section>
-        <ul className="shoppingCart__items">{props.cartItems ? productRows : null }</ul>
-        <section className="shoppingCart__buttons">
-          <button
-            className="button shoppingCart__button"
+        <ul className="shoppingCart__body">
+          {props.cartItems ? productRows : null}
+        </ul>
+        <section className="buttons">
+        <button
+            className="button"
+            // onClick={() => {if(window.confirm("Weet u zeker dat u klaar bent met uw aanvraag?")){orderItems}}
             onClick={orderItems}
             type="button"
           >
-            Bevestig de bestelling
+            Bevestigen
           </button>
           <button
-            className="button shoppingCart__button shoppingCart__button--cancel"
-            onClick={props.resetCart}
+            className="button button--reset"
+            // onClick={() => {if(window.confirm("Weet u zeker dat u de winkelwagen wilt legen?")){props.resetCart()}}}
+            onClick={() => props.resetCart()}
             type="button"
           >
-            Leeg de winkelwagen
+            Annuleren
           </button>
         </section>
       </article>
