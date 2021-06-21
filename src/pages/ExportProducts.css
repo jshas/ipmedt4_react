@@ -62,6 +62,7 @@
   grid-template-columns: repeat(5, minmax(0,1fr));
   border: 2px solid #3C4648;
   border-top: none;
+  width: 100%;
 }
 
 .exportProducts__orderlist__listItem__text{
@@ -71,11 +72,33 @@
 
 
 
-
 .u-border-bottom-black{
   border-bottom: 2px solid #3C4648;
 }
 
 .u-border-right-grey{
   border-right: 2px solid grey;
+}
+
+
+
+@media only screen and (max-width: 66.5rem){
+  .exportProducts__headers{
+    font-size: 1.4rem;
+  }
+  .exportProducts__orderlist__listItem__text{
+    font-size: 1.2rem;
+  }
+}
+
+@media only screen and (max-width: 45rem){
+  .exportProducts__header{
+    margin-top: 7rem;
+  }
+  .exportProducts__headers{
+    font-size: 1.4rem;
+  }
+  .exportProducts__orderlist__listItem__text{
+    font-size: 1.4rem;
+  }
 }
