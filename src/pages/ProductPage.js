@@ -131,6 +131,7 @@ const ProductPage = (props) => {
     <>
       
       <ul className="productGrid">
+      <input className="searchbar" type="text" id="searchInput" onChange={SearchSort} placeholder="Zoek een product" />
         <li className="u-list-style-none productGrid__shoppingCart">
           <ShoppingCart
             userId={user}
@@ -139,7 +140,6 @@ const ProductPage = (props) => {
             removeItem={(productId) => updateCart(productId, 'remove')}
           />
         </li>
-        <input className="searchbar" type="text" id="searchInput" onChange={SearchSort} placeholder="Zoek een product" />
         {products}
       </ul>
     </>
