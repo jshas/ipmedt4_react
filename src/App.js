@@ -44,7 +44,7 @@ class App extends React.Component {
 
                 <Route path="/products">
                     <article className="pageLayout">
-                        <Sidebar className="u-grid-area-sidebar" />
+                        <Sidebar className="u-grid-area-sidebar" style={{zIndex:1}}/>
                         <ProductPage
                             className="Grid u-grid-area-content u-list-style"
                             UserButtonClicked={this.UserButtonClicked}

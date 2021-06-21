@@ -122,19 +122,10 @@ const ProductPage = (props) => {
 
   return (
     <>
-      <input className="searchbar" type="text" id="searchInput" onChange={SearchSort} placeholder="Zoek een product" />
+      
       <ul className="productGrid">
+        <input className="searchbar" type="text" id="searchInput" onChange={SearchSort} placeholder="Zoek een product" />
         {/* This shoppingcart displays a test for productId's.  */}
-        <li className="shoppingCart">
-          <section>
-            <h2>Winkelwagen</h2>
-            <p>Wie niet wagent, wie niet winkelt.</p>
-            <div className="u-separator"></div>
-              <ul>
-                {cartItems}
-             </ul>
-        </section>
-        </li>
         {products}
       </ul>
     </>
