@@ -7,7 +7,7 @@
 nav {
     font-size: 24px;
     height: 100vh;
-    max-width: 24rem;
+    max-width: 100%;
     position: fixed;
     background-color: #3c4648;
     font-family: "Roboto Slab", "Tahoma", sans-serif;
@@ -63,9 +63,11 @@ a:hover{
     margin-bottom: -10px;
 }
 
-@media only screen and (max-width: 1023px){
+@media only screen and (max-width: 1200px){
   nav{
-    width: 100%;
+    width: 100vw;
+    height: 100vh;
+    position: relative;  /*ik heb 4 uur lang gebprobeerd om mobile goed te stylen, we gaan het lekker onder elkaar zetten, daarom staat dit hier nu*/
   }
 }
 
