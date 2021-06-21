@@ -4,20 +4,20 @@
 |--------------------------------------------------------------------------
 */
 
-nav {
-    font-size: 24px;
+.nav {
+    font-size: 2.4rem;
     height: 100vh;
     max-width: 100%;
     position: fixed;
-    background-color: #3c4648;
+    background-color: var(--c-dark-grey);
     font-family: "Roboto Slab", "Tahoma", sans-serif;
 }
 
 .headerNav{
   background-color: #ffb900;
-  padding: 15px;
-  padding-right: 20px;
-  padding-left: 20px;
+  padding: 1.5rem;
+  padding-right: 2rem;
+  padding-left: 2rem;
   width: 100%;
 }
 
@@ -26,17 +26,17 @@ nav {
 }
 
 .nav-main__logo{
-  margin-left: 20px;
+  margin-left: 2rem;
 }
 
 a {
     display: block;
     text-decoration: none;
     color: #ffffff;
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
     border-top: 1px solid #50585a;
     border-bottom: 1px solid #50585a;
 }
@@ -60,20 +60,23 @@ a:hover{
     position: absolute;
     width: 100%;
     bottom: 0;
-    margin-bottom: -10px;
+    margin-bottom: -1rem;
 }
 
-@media only screen and (max-width: 1200px){
+@media only screen and (max-width: 45rem){
   nav{
+    /* position: fixed;
+    top: 0;
+    left: 0; */
     width: 100vw;
     height: 100vh;
-    position: relative;  /*ik heb 4 uur lang gebprobeerd om mobile goed te stylen, we gaan het lekker onder elkaar zetten, daarom staat dit hier nu*/
+    position: relative;  /* ik heb 4 uur lang gebprobeerd om mobile goed te stylen, we gaan het lekker onder elkaar zetten, daarom staat dit hier nu*/
   }
 }
 
 @media only screen and (max-height: 790px){
   a{
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
   }
 }

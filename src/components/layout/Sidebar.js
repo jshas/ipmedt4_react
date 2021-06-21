@@ -1,6 +1,6 @@
 /* External imports */
-import React from "react";
-
+import React, {useState} from "react";
+ 
 /* Intenal imports */
 import { NavLink } from "react-router-dom";
 import withAuth from "../withAuth";
@@ -10,30 +10,32 @@ import { logOut } from "../../util/auth";
 import "./Sidebar.css";
 import api from "../../util/api";
 
-let countClickNav = 0;
+const Sidebar = () => {const [showMenu, setShowMenu] = useState(0);
 
-const Sidebar = () => {
-
-  return <nav id="navAll">
+  return (
+  <nav className="nav" id="navAll">
     <div className="headerNav">
+      {/* Hamburger Menu */}
       <svg
-      onClick={(e) =>{
-        if(countClickNav == 0){
-          document.getElementById("logoJ").style.display = "none";
+      onClick={(e) => {
+        if(showMenu === 0){
+          document.getElementById("logoJ").style.display = "";
           document.getElementById("topNav").style.display = "none";
           document.getElementById("catNav").style.display = "none";
           document.getElementById("adminNav").style.display = "none";
           document.getElementById("botNav").style.display = "none";
-          document.getElementById("navAll").style.backgroundColor = "#F1F1F1";
-          countClickNav = 1;
+          document.getElementById("navAll").style.height = "50px";
+          document.getElementById("navAll").style.backgroundColor = "#FFF";
+          setShowMenu(1);
         }else{
           document.getElementById("logoJ").style.display = "inline-block";
           document.getElementById("topNav").style.display = "block";
           document.getElementById("catNav").style.display = "block";
           document.getElementById("adminNav").style.display = "block";
           document.getElementById("botNav").style.display = "block";
+          document.getElementById("navAll").style.height = "100vh";
           document.getElementById("navAll").style.backgroundColor = "#3C4648";
-          countClickNav = 0;
+          setShowMenu(0);
         }
 
       }}
@@ -58,7 +60,7 @@ const Sidebar = () => {
       </NavLink>
 
     </div>
-    <div className="catNav" id="catNav">
+    <section className="catNav" id="catNav">
       <NavLink to="/category/Communicatie" activeStyle={{backgroundColor: "#2b2d2e"}}>
         <svg xmlns="http://www.w3.org/2000/svg" className="nav-main__icon" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF"><path d="M0 0h24v24H0z" fill="none"/><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
         Communicatie
@@ -83,7 +85,7 @@ const Sidebar = () => {
         <svg xmlns="http://www.w3.org/2000/svg" className="nav-main__icon" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF"><path d="M0 0h24v24H0z" fill="none"/><path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/></svg>
         Werkplek
       </NavLink>
-    </div>
+    </section>
 
     <div className="adminNav" id="adminNav">
       <NavLink to="/h" activeStyle={{backgroundColor: "#2b2d2e"}}>
@@ -103,6 +105,7 @@ const Sidebar = () => {
       </NavLink>
     </div>
   </nav>
+  );
 }
 
 export default Sidebar;

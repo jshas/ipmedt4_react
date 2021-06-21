@@ -29,7 +29,7 @@ const ProductPage = (props) => {
           });
           const userOrders = res.data[2];
           // combinedData is a combination of the products and the user specific orders array.
-          // 
+
           let combinedData = productData.map((product)=>{
             let ordered;
             if (product.id in Object.keys(userOrders)){
@@ -74,7 +74,6 @@ const ProductPage = (props) => {
   };
 
 
-
   // Mapping of fetched API products to list.
   const products = productsList.map((product) => {
     return (
@@ -101,7 +100,7 @@ const ProductPage = (props) => {
     var i;
     console.log(filter);
     for(i = 0; i < products.length; i++){
-      var currentProduct = products[i].props.children.props.product
+      var currentProduct = products[i].props.children.props.product;
       
       var prodBrand = currentProduct.brand.toUpperCase();
       var prodCat = currentProduct.category.toUpperCase();
@@ -129,7 +128,6 @@ const ProductPage = (props) => {
 
   return (
     <>
-      
       <ul className="productGrid">
       <input className="searchbar" type="text" id="searchInput" onChange={SearchSort} placeholder="Zoek een product" />
         <li className="u-list-style-none productGrid__shoppingCart">

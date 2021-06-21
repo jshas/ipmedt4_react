@@ -43,6 +43,23 @@ h3 {
     grid-template-areas: "Sidebar Content";
 }
 
+
+
+@media only screen and (max-width: 45rem){
+    .pageLayout{
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+        "Sidebar"
+        "Content";
+    }
+
+}
+  
+
+
+
+/* TODO: DEZE GRID MOET GEWOON IN DE USERPAGE CSS. */
+
 .Grid {
     /* External grid values for the App.css grid */
     align-self: center;
@@ -77,6 +94,7 @@ h3 {
 .u-grid-area-sidebar {
     grid-area: Sidebar;
 }
+
 
 .u-list-style-none {
     list-style: none;

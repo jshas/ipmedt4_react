@@ -45,7 +45,7 @@ class App extends React.Component {
                     <article className="pageLayout">
                         <Sidebar className="u-grid-area-sidebar" style={{zIndex:1}}/>
                         <ProductPage
-                            className="Grid u-grid-area-content u-list-style"
+                            className="u-grid-area-content u-list-style"
                             UserButtonClicked={this.UserButtonClicked}
                         />
                     </article>
