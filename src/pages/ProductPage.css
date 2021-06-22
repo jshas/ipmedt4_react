@@ -4,71 +4,66 @@
 |--------------------------------------------------------------------------
 */
 
-.productGrid{
+.productGrid {
     /* External grid values for the App.css grid */
-    grid-column: 2 / span all;   
+    grid-column: 2 / span all;
     /* width: calc(100%-25rem);  */
-    
+
     /* Internal grid values */
     display: grid;
     grid-template-columns: repeat(4, minmax(35rem, 1fr));
     overflow-x: none;
 
     gap: 2rem;
-    margin: 5rem;  
+    margin: 5rem;
     transition: 1s all;
 }
 
-@media only screen and (max-width: 45rem){
-  .productGrid{
-      grid-column: 1 / 1;
-      max-width: 100%;
-      margin: 1rem 0;
-  }
+@media only screen and (max-width: 45rem) {
+    .productGrid {
+        grid-column: 1 / 1;
+        max-width: 100%;
+        margin: 1rem 0;
+    }
 }
 
-
-
-.searchbar{
-  grid-column: 1 / -1;  
-  grid-row: 1 / 2;
-  background-color: white;
-  height: 56px;
-  font-size: 28px;
-  padding-left: 10px;
-
+.searchbar {
+    grid-column: 1 / -1;
+    grid-row: 1 / 2;
+    background-color: white;
+    height: 56px;
+    font-size: 28px;
+    padding-left: 10px;
 }
 
-@media only screen and (max-width: 110rem){
-  .productGrid{
-    grid-template-columns: repeat(3, minmax(30rem, 1fr));
-    gap: 2rem;
-  }
+@media only screen and (max-width: 110rem) {
+    .productGrid {
+        grid-template-columns: repeat(3, minmax(30rem, 1fr));
+        gap: 2rem;
+    }
 
-  /* .searchbar{
+    /* .searchbar{
     grid-column: 1 / span 3; 
   } */
 }
 
-@media only screen and (max-width: 85rem){
-  .productGrid{
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-  }
+@media only screen and (max-width: 85rem) {
+    .productGrid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
 
-  /* .searchbar{
+    /* .searchbar{
     grid-column: 1 / span 2; 
   } */
 }
 
-@media only screen and (max-width: 80rem){
-  .productGrid{
-    grid-template-columns:  1fr;
-  }
+@media only screen and (max-width: 80rem) {
+    .productGrid {
+        grid-template-columns: 1fr;
+    }
 
-.productGrid__shoppingCart{
-
-  min-width: 30rem;
-  }
+    .productGrid__shoppingCart {
+        min-width: 30rem;
+    }
 }
-
