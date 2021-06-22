@@ -13,6 +13,13 @@
     font-family: "Roboto Slab", "Tahoma", sans-serif;
 }
 
+.catNav {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
+  
+}
+
 .headerNav{
   background-color: #ffb900;
   padding: 1.5rem;
@@ -55,6 +62,7 @@ a:hover{
 .adminNav {
     border-bottom: 1px solid #50585a;
 }
+
 
 .botNav {
     position: absolute;

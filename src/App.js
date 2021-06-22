@@ -1,5 +1,5 @@
 /* External imports */
-import React from "react";
+import React, {useState} from "react";
 import { Switch, Route } from "react-router-dom";
 
 /* Internal imports */
@@ -14,58 +14,62 @@ import AddProducts from "./components/layout/AddProducts";
 /* CSS imports */
 import "./App.css";
 
-class App extends React.Component {
+const App = (props) => {
+    const [activeFilters, setActiveFilters] = useState([]);
 
-    render() {
+    const filterHandler = (e) => {
+        setActiveFilters([...activeFilters, e]);
+        console.log(activeFilters);
+    }
+
+
         return (
             <Switch>
                 <Route path="/" exact>
                     <article className="pageLayout">
-                        <Sidebar className="u-grid-area-sidebar" />
+                        <Sidebar activeFilters={activeFilters} filterHandler={filterHandler} className="u-grid-area-sidebar" />
                         <ProductPage
                             className="u-grid-area-content u-list-style"
-                            UserButtonClicked={this.UserButtonClicked}
+                            activeFilters={activeFilters}
                         />
                     </article>
                 </Route>
 
                 <Route path="/users" exact>
                     <article className="pageLayout">
-                        <Sidebar className="u-grid-area-sidebar" />
+                        <Sidebar activeFilters={activeFilters} filterHandler={filterHandler} className="u-grid-area-sidebar" />
                         <UserPage
                             className="Grid"
-                            UserButtonClicked={this.UserButtonClicked}
                         />
                     </article>
                 </Route>
 
                 <Route path="/users/add">
                     <article className="pageLayout">
-                        <Sidebar className="u-grid-area-sidebar" />
+                        <Sidebar activeFilters={activeFilters} filterHandler={filterHandler} className="u-grid-area-sidebar" />
                         <AddUsers className="Grid" />
                     </article>
                 </Route>
 
                 <Route path="/products" exact>
                     <article className="pageLayout">
-                        <Sidebar className="u-grid-area-sidebar" style={{zIndex:1}}/>
+                        <Sidebar activeFilters={activeFilters} filterHandler={filterHandler} className="u-grid-area-sidebar" style={{zIndex:1}}/>
                         <ProductPage
                             className="u-grid-area-content u-list-style"
-                            UserButtonClicked={this.UserButtonClicked}
                         />
                     </article>
                 </Route>
 
                 <Route path="/products/export">
                     <article className="pageLayout">
-                        <Sidebar className="u-grid-area-sidebar" />
+                        <Sidebar activeFilters={activeFilters} filterHandler={filterHandler} className="u-grid-area-sidebar" />
                         <ExportProducts className="Grid" />
                     </article>
                 </Route>
 
                 <Route path="/products/add">
                     <article className="pageLayout">
-                        <Sidebar className="u-grid-area-sidebar" />
+                        <Sidebar activeFilters={activeFilters} filterHandler={filterHandler} className="u-grid-area-sidebar" />
                         <AddProducts className="Grid" />
                     </article>
                 </Route>
@@ -75,7 +79,6 @@ class App extends React.Component {
                 </Route>
             </Switch>
         );
-    }
 }
 
 export default App;
