@@ -15,12 +15,17 @@ import AddProducts from "./components/layout/AddProducts";
 import "./App.css";
 
 class App extends React.Component {
+
     render() {
         return (
             <Switch>
                 <Route path="/" exact>
                     <article className="pageLayout">
                         <Sidebar className="u-grid-area-sidebar" />
+                        <ProductPage
+                            className="u-grid-area-content u-list-style"
+                            UserButtonClicked={this.UserButtonClicked}
+                        />
                     </article>
                 </Route>
 
