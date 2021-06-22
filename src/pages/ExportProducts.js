@@ -44,25 +44,25 @@ class ExportProducts extends React.Component {
     const BASE_URL_UPDATE = "http://127.0.0.1:8000/api/order/";
     // console.log(value);
 
-    if (value == "7 dagen") {
+    if (value === "7 dagen") {
       api().get(BASE_URL_UPDATE + "7dagen").then((res) => {
           this.setState({ orderList: res.data });
       });
     }
 
-    else if (value == "14 dagen") {
+    else if (value === "14 dagen") {
       api().get(BASE_URL_UPDATE + "14dagen").then((res) => {
           this.setState({ orderList: res.data });
       });
     }
 
-    else if (value == "Huidige jaar") {
+    else if (value === "Huidige jaar") {
       api().get(BASE_URL_UPDATE + "ditjaar").then((res) => {
           this.setState({ orderList: res.data });
       });
     }
 
-    else if (value == "Alles") {
+    else if (value === "Alles") {
       api().get(BASE_URL_UPDATE + "all").then((res) => {
           this.setState({ orderList: res.data });
       });
