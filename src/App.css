@@ -39,22 +39,34 @@ h3 {
 .pageLayout {
     height: 100%;
     display: grid;
-    grid-template-columns: 25rem 1fr;
+    grid-template-columns: 30rem 1fr;
     grid-template-areas: "Sidebar Content";
 }
+
+
 
 
 
 @media only screen and (max-width: 45rem){
     .pageLayout{
         grid-template-columns: 1fr;
-        grid-template-areas: 
+        grid-template-areas:
         "Sidebar"
         "Content";
     }
 
+    .productCard, .shoppingCart, .searchbar {
+        width: 95%;
+        margin: auto;
+    }
+
 }
-  
+
+.productCard {
+    margin: 0 auto;
+    align-self: center;
+}
+
 
 
 
@@ -75,7 +87,7 @@ h3 {
     margin: 3rem;
 }
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 45rem) {
     .Grid {
         grid-template-columns: 1fr;
     }

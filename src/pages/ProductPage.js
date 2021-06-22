@@ -77,7 +77,7 @@ const ProductPage = (props) => {
   // Mapping of fetched API products to list.
   const products = productsList.map((product) => {
     return (
-      <li className="u-list-style-none" key={product.id.toString() } style={{display: "block"}}>
+      <li className="u-list-style-none productSort" key={product.id.toString() } style={{display: "block"}}>
         <ProductCard
           key={product.key}
           product={product}
@@ -95,29 +95,30 @@ const ProductPage = (props) => {
   });
 
   const SearchSort = () => {
-    var searchInput = document.getElementById("searchInput");
-    var filter = searchInput.value.toUpperCase().split(" ");
-    var i;
+    let searchInput = document.getElementById("searchInput");
+    let filter = searchInput.value.toUpperCase().split(" ");
+    let i;
     console.log(filter);
     for(i = 0; i < products.length; i++){
-      var currentProduct = products[i].props.children.props.product;
+      let currentProduct = products[i].props.children.props.product;
       
-      var prodBrand = currentProduct.brand.toUpperCase();
-      var prodCat = currentProduct.category.toUpperCase();
-      var prodDescription = currentProduct.description.toUpperCase();
-      var prodModel = currentProduct.model.toUpperCase();
-      var prodSubCategory = currentProduct.sub_category.toUpperCase();
+      let prodBrand = currentProduct.brand.toUpperCase();
+      let prodCat = currentProduct.category.toUpperCase();
+      let prodDescription = currentProduct.description.toUpperCase();
+      let prodModel = currentProduct.model.toUpperCase();
+      let prodSubCategory = currentProduct.sub_category.toUpperCase();
 
-      var j;
-      document.getElementsByClassName("u-list-style-none")[i].style.display = "none";
+      let j;
+      document.getElementsByClassName("productSort")[i].style.display = "none";
 
       for(j = 0; j < filter.length; j++){
         if(prodBrand.includes(filter[j]) || prodCat.includes(filter[j]) || prodDescription.includes(filter[j]) ||prodModel.includes(filter[j]) || prodSubCategory.includes(filter[j])){
-          document.getElementsByClassName("u-list-style-none")[i].style.display = "block";
-          var k;
+          document.getElementsByClassName("productSort")[i].style.display = "block";
+          console.log(document.getElementsByClassName("productSort")[i])
+          let k;
           for(k = 0; k < filter.length; k++){
             if(!(prodBrand.includes(filter[k]) || prodCat.includes(filter[k]) || prodDescription.includes(filter[k]) ||prodModel.includes(filter[k]) || prodSubCategory.includes(filter[k]))){
-              document.getElementsByClassName("u-list-style-none")[i].style.display = "none";
+              document.getElementsByClassName("productSort")[i].style.display = "none";
               
             }
           }
