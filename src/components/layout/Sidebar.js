@@ -67,27 +67,27 @@ const Sidebar = (props) => {
 
     </div>
     <section className="catNav" id="catNav">
-      <button value="communicatie" onClick={(e) => filterHandler(e.target.value)} activeStyle={{backgroundColor: "#2b2d2e"}}>
+      <button value="communicatie" onClick={(e) => filterHandler(e.target.value)} >
         <svg xmlns="http://www.w3.org/2000/svg" className="nav-main__icon" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF"><path d="M0 0h24v24H0z" fill="none"/><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
         Communicatie
       </button>
-      <button value="ergonomie" onClick={(e) => filterHandler(e.target.value)} activeStyle={{backgroundColor: "#2b2d2e"}}>
+      <button value="ergonomie" onClick={(e) => filterHandler(e.target.value)} >
         <svg xmlns="http://www.w3.org/2000/svg" className="nav-main__icon" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#ffffff"><g><rect fill="none" height="24" width="24" x="0"/></g><g><g><g><path d="M4,18v3h3v-3h10v3h3v-6H4V18z M19,10h3v3h-3V10z M2,10h3v3H2V10z M17,13H7V5c0-1.1,0.9-2,2-2h6c1.1,0,2,0.9,2,2V13z"/></g></g></g></svg>
         Ergonomie
       </button>
-      <button value="kabel" onClick={(e) => filterHandler(e.target.value)} activeStyle={{backgroundColor: "#2b2d2e"}}>
+      <button value="kabel" onClick={(e) => filterHandler(e.target.value)} >
         <svg xmlns="http://www.w3.org/2000/svg" className="nav-main__icon" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF"><g><path d="M0,0h24v24H0V0z" fill="none"/></g><g><g><path d="M20,5V4c0-0.55-0.45-1-1-1h-2c-0.55,0-1,0.45-1,1v1h-1v4c0,0.55,0.45,1,1,1h1v7c0,1.1-0.9,2-2,2s-2-0.9-2-2V7 c0-2.21-1.79-4-4-4S5,4.79,5,7v7H4c-0.55,0-1,0.45-1,1v4h1v1c0,0.55,0.45,1,1,1h2c0.55,0,1-0.45,1-1v-1h1v-4c0-0.55-0.45-1-1-1H7 V7c0-1.1,0.9-2,2-2s2,0.9,2,2v10c0,2.21,1.79,4,4,4s4-1.79,4-4v-7h1c0.55,0,1-0.45,1-1V5H20z"/></g></g></svg>
         Kabel
       </button>
-      <button value="print" onClick={(e) => filterHandler(e.target.value)} activeStyle={{backgroundColor: "#2b2d2e"}}>
+      <button value="print" onClick={(e) => filterHandler(e.target.value)} >
         <svg xmlns="http://www.w3.org/2000/svg" className="nav-main__icon" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF"><path d="M0 0h24v24H0z" fill="none"/><path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/></svg>
         Print
       </button>
-      <button value="randapparatuur" onClick={(e) => filterHandler(e.target.value)} activeStyle={{backgroundColor: "#2b2d2e"}}>
+      <button value="randapparatuur" onClick={(e) => filterHandler(e.target.value)} >
         <svg xmlns="http://www.w3.org/2000/svg" className="nav-main__icon" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF"><path d="M20 5H4c-1.1 0-1.99.9-1.99 2L2 17c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm-9 3h2v2h-2V8zm0 3h2v2h-2v-2zM8 8h2v2H8V8zm0 3h2v2H8v-2zm-1 2H5v-2h2v2zm0-3H5V8h2v2zm9 7H8v-2h8v2zm0-4h-2v-2h2v2zm0-3h-2V8h2v2zm3 3h-2v-2h2v2zm0-3h-2V8h2v2z"/><path d="M0 0h24v24H0zm0 0h24v24H0z" fill="none"/></svg>
         Randapperatuur
       </button>
-      <button value="werkplek" onClick={(e) => filterHandler(e.target.value)} activeStyle={{backgroundColor: "#2b2d2e"}}>
+      <button value="werkplek" onClick={(e) => filterHandler(e.target.value)} >
         <svg xmlns="http://www.w3.org/2000/svg" className="nav-main__icon" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF"><path d="M0 0h24v24H0z" fill="none"/><path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/></svg>
         Werkplek
       </button>
