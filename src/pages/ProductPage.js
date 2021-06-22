@@ -43,12 +43,13 @@ const ProductPage = (props) => {
           });
           setProductsList(productData);
           setUser(res.data[1]);
-          console.log(combinedData);
         })
         .catch((err) => {
           console.log(err);
         });
     }, []);
+
+
 
   // Sends productId to add or remove function based on supplied action parameter from the ProductCard component
   const updateCart = (productId, action) => {
@@ -59,7 +60,6 @@ const ProductPage = (props) => {
     }
     if (action === "remove") {
       let updateArrayCopy = cloneDeep(productsList);
-      console.log(productId);
       updateArrayCopy[productId - 1].inCart = false;
       setProductsList(updateArrayCopy);
     }
@@ -95,7 +95,6 @@ const ProductPage = (props) => {
     return product.inCart === true;
   });
 
-
   //gives the ability to search using the searchbar
   const SearchSort = () => {
     let searchInput = document.getElementById("searchInput");
@@ -130,33 +129,27 @@ const ProductPage = (props) => {
   }
 
   //category navigation
-  const CatSort = () =>{
-    let i;
-    console.log("in function", props.activeFilters);
 
-    for(i = 0; i < products.length; i++){
-      let currentCategory = products[i].props.children.props.product.category.toUpperCase();
-      let j;
 
-      if(props.activeFilters.length !== 0){
-        document.getElementsByClassName("productItem")[i].style.display = "none";
-      }
 
-      for(j = 0; j < props.activeFilters.length; j++){
-        let catCheck = props.activeFilters[j].toUpperCase()
-        if(catCheck == currentCategory){
-          document.getElementsByClassName("productItem")[i].style.display = "block"
+  useEffect(() =>{
+      for(let i = 0; i < products.length; i++){
+        let currentCategory = products[i].props.children.props.product.category.toUpperCase();
+        
+        if(props.activeFilters.length !== 0){
+          document.getElementsByClassName("productItem")[i].style.display = "none";
         }
+  
+        for(let j = 0; j < props.activeFilters.length; j++){
+          let catCheck = props.activeFilters[j].toUpperCase()
+          if(catCheck == currentCategory){
+            document.getElementsByClassName("productItem")[i].style.display = "block"
+          }
+        }
+        
       }
-      
-    }
-  }
+  }, [props.activeFilters, products])
 
-  let arrayCopy;
-  if(props.activeFilters !== arrayCopy){
-    CatSort();
-    arrayCopy = props.activeFilters;
-  }
 
 
   return (
