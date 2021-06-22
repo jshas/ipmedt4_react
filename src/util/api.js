@@ -13,10 +13,8 @@ export default function api() {
         (error) => {
             if (error.response.status === 401) {
                 logOut();
-
                 return Promise.reject();
             }
-
             return Promise.reject(error);
         }
     );

@@ -13,11 +13,19 @@
     font-family: "Roboto Slab", "Tahoma", sans-serif;
 }
 
+.adminNav{
+  margin-top: 1rem;
+  height: 30%;
+  display: flex;
+  gap: 1rem;
+  flex-flow: column; 
+}
+
 .catNav {
   display: flex;
   flex-flow: column nowrap;
-  width: 100%;
-  
+  gap: 2rem;
+  width: 100%; 
 }
 
 .headerNav{
@@ -36,27 +44,37 @@
   margin-left: 2rem;
 }
 
-a {
+.catNav__filterButton {
+  background: transparent;
+  border: 0px solid transparent;
+  font-size: 2.4rem;
+  text-align: left;
+  padding: 0px;
+}
+
+.navLink, .catNav__filterButton {
     display: block;
     text-decoration: none;
     color: #ffffff;
-    margin-left: 1rem;
-    margin-right: 1rem;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin: 0 2rem;
     border-top: 1px solid #50585a;
-    border-bottom: 1px solid #50585a;
+    border-bottom: 1px solid #50585a; 
 }
 
-a:hover{
+
+
+
+
+.navLink:hover, .catNav__filterButton:hover{
   background-color: #50585a;
 }
 
 .nav-main__icon {
     transform: translateY(3px);
-    padding-right: 5px;
+    margin-right: 2rem;
 }
 
+/* navsection separator */
 .topNav,
 .catNav,
 .adminNav {
@@ -66,20 +84,40 @@ a:hover{
 
 .botNav {
     position: absolute;
+
     width: 100%;
     bottom: 0;
-    margin-bottom: -1rem;
+
 }
 
 @media only screen and (max-width: 45rem){
   .nav{
     padding-bottom: 66.5px;
     position: relative;  /* ik heb 4 uur lang gebprobeerd om mobile goed te stylen, we gaan het lekker onder elkaar zetten, daarom staat dit hier nu*/
+
   }
+
+  .nav{
+    height: 5rem;
+    transition: 0.2s height linear;
+  }
+  .catNav{
+    display: none;  
+  }
+
+  .adminNav{
+    display: none;  
+  }
+  
+  .botNav{
+    display: none;  
+  }
+
+
 }
 
 @media only screen and (max-height: 790px){
-  a{
+  .navLink, .catNav__filterButton{
     margin-top: 1rem;
     margin-bottom: 1rem;
   }

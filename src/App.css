@@ -111,3 +111,7 @@ h3 {
 .u-list-style-none {
     list-style: none;
 }
+
+.u-z-index-top{
+    z-index: 1;
+}

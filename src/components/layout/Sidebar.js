@@ -3,7 +3,6 @@ import React, { useState } from "react";
 
 /* Intenal imports */
 import { NavLink } from "react-router-dom";
-import withAuth from "../withAuth";
 import { logOut } from "../../util/auth";
 
 /* CSS imports */
@@ -11,6 +10,26 @@ import "./Sidebar.css";
 import api from "../../util/api";
 const Sidebar = (props) => {
   const [showMenu, setShowMenu] = useState(0);
+
+  const menuToggle = () => {
+    if (showMenu === 0) {
+      document.getElementById("logoJ").style.display = "";
+      document.getElementById("catNav").style.display = "none";
+      document.getElementById("adminNav").style.display = "none";
+      document.getElementById("botNav").style.display = "none";
+      document.getElementById("navAll").style.height = "50px";
+      document.getElementById("navAll").style.backgroundColor = "#FFF";
+      setShowMenu(1);
+    } else {
+      document.getElementById("logoJ").style.display = "inline-block";
+      document.getElementById("catNav").style.display = "block";
+      document.getElementById("adminNav").style.display = "block";
+      document.getElementById("botNav").style.display = "block";
+      document.getElementById("navAll").style.height = "100vh";
+      document.getElementById("navAll").style.backgroundColor = "#3C4648";
+      setShowMenu(0);
+    }
+  };
 
   const filterHandler = (categoryValue) => {
     props.filterHandler(categoryValue);
@@ -20,28 +39,9 @@ const Sidebar = (props) => {
     <nav className="nav" id="navAll">
       <div className="headerNav">
         {/* Hamburger Menu */}
-        <svg
-          onClick={(e) => {
-            if (showMenu === 0) {
-              document.getElementById("logoJ").style.display = "";
-              document.getElementById("topNav").style.display = "none";
-              document.getElementById("catNav").style.display = "none";
-              document.getElementById("adminNav").style.display = "none";
-              document.getElementById("botNav").style.display = "none";
-              document.getElementById("navAll").style.height = "50px";
-              document.getElementById("navAll").style.backgroundColor = "#FFF";
-              setShowMenu(1);
-            } else {
-              document.getElementById("logoJ").style.display = "inline-block";
-              document.getElementById("topNav").style.display = "block";
-              document.getElementById("catNav").style.display = "block";
-              document.getElementById("adminNav").style.display = "block";
-              document.getElementById("botNav").style.display = "block";
-              document.getElementById("navAll").style.height = "100vh";
-              document.getElementById("navAll").style.backgroundColor =
-                "#3C4648";
-              setShowMenu(0);
-            }
+        <svg 
+          onClick={() => {
+            menuToggle(showMenu);
           }}
           className="nav-main__dropdown"
           viewBox="0 0 75 60"
@@ -52,7 +52,7 @@ const Sidebar = (props) => {
           <rect y="22.5" width="75" height="15"></rect>
           <rect y="45" width="75" height="15"></rect>
         </svg>
-        <svg
+        <svg 
           xmlns="http://www.w3.org/2000/svg"
           className="nav-main__logo"
           id="logoJ"
@@ -114,23 +114,14 @@ const Sidebar = (props) => {
         </svg>
       </div>
 
-      <div className="topNav" id="topNav">
-        <NavLink to="/" activeStyle={{ backgroundColor: "#2b2d2e" }}>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="nav-main__icon"
-            height="24px"
-            viewBox="0 0 24 24"
-            width="24px"
-            fill="#ffffff"
-          >
-            <path d="M0 0h24v24H0z" fill="none" />
-            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
-          </svg>
-          Home
-        </NavLink>
-        <NavLink to="/a" activeStyle={{ backgroundColor: "#2b2d2e" }}>
-          <svg
+      <div className="adminNav" id="adminNav">
+        <NavLink
+          exact
+          className="navLink"
+          to="/user"
+          activeStyle={{ backgroundColor: "#2b2d2e" }}
+        >
+          <svg 
             xmlns="http://www.w3.org/2000/svg"
             className="nav-main__icon"
             height="24px"
@@ -139,18 +130,62 @@ const Sidebar = (props) => {
             fill="#FFFFFF"
           >
             <path d="M0 0h24v24H0z" fill="none" />
-            <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z" />
+            <path d="M11.99 2c-5.52 0-10 4.48-10 10s4.48 10 10 10 10-4.48 10-10-4.48-10-10-10zm3.61 6.34c1.07 0 1.93.86 1.93 1.93 0 1.07-.86 1.93-1.93 1.93-1.07 0-1.93-.86-1.93-1.93-.01-1.07.86-1.93 1.93-1.93zm-6-1.58c1.3 0 2.36 1.06 2.36 2.36 0 1.3-1.06 2.36-2.36 2.36s-2.36-1.06-2.36-2.36c0-1.31 1.05-2.36 2.36-2.36zm0 9.13v3.75c-2.4-.75-4.3-2.6-5.14-4.96 1.05-1.12 3.67-1.69 5.14-1.69.53 0 1.2.08 1.9.22-1.64.87-1.9 2.02-1.9 2.68zM11.99 20c-.27 0-.53-.01-.79-.04v-4.07c0-1.42 2.94-2.13 4.4-2.13 1.07 0 2.92.39 3.84 1.15-1.17 2.97-4.06 5.09-7.45 5.09z" />
           </svg>
-          Winkelwagen
+          Gebruikers
         </NavLink>
-      </div>
-      <section className="catNav" id="catNav">
-        <button
-          value="communicatie"
-          onClick={(e) => filterHandler(e.target.value)}
+        <NavLink
+          exact
+          className="navLink"
+          to="/products"
           activeStyle={{ backgroundColor: "#2b2d2e" }}
         >
-          <svg
+          <svg 
+            xmlns="http://www.w3.org/2000/svg"
+            className="nav-main__icon"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#FFFFFF"
+          >
+            <path d="M0 0h24v24H0zm18.31 6l-2.76 5z" fill="none" />
+            <path d="M11 9h2V6h3V4h-3V1h-2v3H8v2h3v3zm-4 9c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2zm-9.83-3.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.86-7.01L19.42 4h-.01l-1.1 2-2.76 5H8.53l-.13-.27L6.16 6l-.95-2-.94-2H1v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.13 0-.25-.11-.25-.25z" />
+          </svg>
+          Producten
+        </NavLink>
+        <NavLink
+          exact
+          className="navLink"
+          to="/products/export"
+          activeStyle={{ backgroundColor: "#2b2d2e" }}
+        >
+          <svg 
+            xmlns="http://www.w3.org/2000/svg"
+            enable-background="new 0 0 24 24"
+            className="nav-main__icon"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#FFFFFF"
+          >
+            <g>
+              <rect fill="none" height="24" width="24" />
+            </g>
+            <g>
+              <path d="M18,15v3H6v-3H4v3c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2v-3H18z M17,11l-1.41-1.41L13,12.17V4h-2v8.17L8.41,9.59L7,11l5,5 L17,11z" />
+            </g>
+          </svg>
+          Export
+        </NavLink>
+      </div>
+
+      <section className="catNav" id="catNav">
+        <button
+          className="catNav__filterButton"
+          value="communicatie"
+          onClick={(e) => filterHandler(e.target.value)}
+        >
+          <svg 
             xmlns="http://www.w3.org/2000/svg"
             className="nav-main__icon"
             height="24px"
@@ -164,11 +199,11 @@ const Sidebar = (props) => {
           Communicatie
         </button>
         <button
+          className="catNav__filterButton"
           value="ergonomie"
           onClick={(e) => filterHandler(e.target.value)}
-          activeStyle={{ backgroundColor: "#2b2d2e" }}
         >
-          <svg
+          <svg 
             xmlns="http://www.w3.org/2000/svg"
             className="nav-main__icon"
             enable-background="new 0 0 24 24"
@@ -191,11 +226,11 @@ const Sidebar = (props) => {
           Ergonomie
         </button>
         <button
+          className="catNav__filterButton"
           value="kabel"
           onClick={(e) => filterHandler(e.target.value)}
-          activeStyle={{ backgroundColor: "#2b2d2e" }}
         >
-          <svg
+          <svg 
             xmlns="http://www.w3.org/2000/svg"
             className="nav-main__icon"
             enable-background="new 0 0 24 24"
@@ -216,11 +251,11 @@ const Sidebar = (props) => {
           Kabel
         </button>
         <button
+          className="catNav__filterButton"
           value="print"
           onClick={(e) => filterHandler(e.target.value)}
-          activeStyle={{ backgroundColor: "#2b2d2e" }}
         >
-          <svg
+          <svg 
             xmlns="http://www.w3.org/2000/svg"
             className="nav-main__icon"
             height="24px"
@@ -234,11 +269,11 @@ const Sidebar = (props) => {
           Print
         </button>
         <button
+          className="catNav__filterButton"
           value="randapparatuur"
           onClick={(e) => filterHandler(e.target.value)}
-          activeStyle={{ backgroundColor: "#2b2d2e" }}
         >
-          <svg
+          <svg 
             xmlns="http://www.w3.org/2000/svg"
             className="nav-main__icon"
             height="24px"
@@ -252,11 +287,11 @@ const Sidebar = (props) => {
           Randapperatuur
         </button>
         <button
+          className="catNav__filterButton"
           value="werkplek"
           onClick={(e) => filterHandler(e.target.value)}
-          activeStyle={{ backgroundColor: "#2b2d2e" }}
         >
-          <svg
+          <svg 
             xmlns="http://www.w3.org/2000/svg"
             className="nav-main__icon"
             height="24px"
@@ -271,39 +306,9 @@ const Sidebar = (props) => {
         </button>
       </section>
 
-      <div className="adminNav" id="adminNav">
-        <NavLink to="/h" activeStyle={{ backgroundColor: "#2b2d2e" }}>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="nav-main__icon"
-            height="24px"
-            viewBox="0 0 24 24"
-            width="24px"
-            fill="#FFFFFF"
-          >
-            <path d="M0 0h24v24H0z" fill="none" />
-            <path d="M11.99 2c-5.52 0-10 4.48-10 10s4.48 10 10 10 10-4.48 10-10-4.48-10-10-10zm3.61 6.34c1.07 0 1.93.86 1.93 1.93 0 1.07-.86 1.93-1.93 1.93-1.07 0-1.93-.86-1.93-1.93-.01-1.07.86-1.93 1.93-1.93zm-6-1.58c1.3 0 2.36 1.06 2.36 2.36 0 1.3-1.06 2.36-2.36 2.36s-2.36-1.06-2.36-2.36c0-1.31 1.05-2.36 2.36-2.36zm0 9.13v3.75c-2.4-.75-4.3-2.6-5.14-4.96 1.05-1.12 3.67-1.69 5.14-1.69.53 0 1.2.08 1.9.22-1.64.87-1.9 2.02-1.9 2.68zM11.99 20c-.27 0-.53-.01-.79-.04v-4.07c0-1.42 2.94-2.13 4.4-2.13 1.07 0 2.92.39 3.84 1.15-1.17 2.97-4.06 5.09-7.45 5.09z" />
-          </svg>
-          Gebruikers
-        </NavLink>
-        <NavLink to="/i" activeStyle={{ backgroundColor: "#2b2d2e" }}>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="nav-main__icon"
-            height="24px"
-            viewBox="0 0 24 24"
-            width="24px"
-            fill="#FFFFFF"
-          >
-            <path d="M0 0h24v24H0zm18.31 6l-2.76 5z" fill="none" />
-            <path d="M11 9h2V6h3V4h-3V1h-2v3H8v2h3v3zm-4 9c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2zm-9.83-3.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.86-7.01L19.42 4h-.01l-1.1 2-2.76 5H8.53l-.13-.27L6.16 6l-.95-2-.94-2H1v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.13 0-.25-.11-.25-.25z" />
-          </svg>
-          Producten
-        </NavLink>
-      </div>
-
       <div className="botNav" id="botNav">
         <NavLink
+          className="navLink"
           to="#"
           onClick={() =>
             api()
@@ -311,7 +316,7 @@ const Sidebar = (props) => {
               .then(() => logOut())
           }
         >
-          <svg
+          <svg 
             xmlns="http://www.w3.org/2000/svg"
             className="nav-main__icon"
             width="24"
