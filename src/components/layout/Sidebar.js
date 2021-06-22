@@ -37,9 +37,11 @@ const Sidebar = (props) => {
 
   return (
     <nav className="nav" id="navAll">
-      <div className="headerNav">
+      <NavLink 
+      to="/"
+      className="headerNav">
         {/* Hamburger Menu */}
-        <svg 
+        <svg
           onClick={() => {
             menuToggle(showMenu);
           }}
@@ -52,7 +54,7 @@ const Sidebar = (props) => {
           <rect y="22.5" width="75" height="15"></rect>
           <rect y="45" width="75" height="15"></rect>
         </svg>
-        <svg 
+        <svg
           xmlns="http://www.w3.org/2000/svg"
           className="nav-main__logo"
           id="logoJ"
@@ -112,16 +114,16 @@ const Sidebar = (props) => {
             d="M20.2 7.7l-8-7.7L0 7.7h6.9l-4.2 14s1.4.2 3.3.2c1.5 0 2.4-.5 2.8-1.2.2-.4.3-.6.5-1.2l3.6-11.9 7.3.1z"
           ></path>
         </svg>
-      </div>
+      </NavLink>
 
       <div className="adminNav" id="adminNav">
         <NavLink
           exact
           className="navLink"
-          to="/user"
+          to="/users"
           activeStyle={{ backgroundColor: "#2b2d2e" }}
         >
-          <svg 
+          <svg
             xmlns="http://www.w3.org/2000/svg"
             className="nav-main__icon"
             height="24px"
@@ -134,13 +136,14 @@ const Sidebar = (props) => {
           </svg>
           Gebruikers
         </NavLink>
+
         <NavLink
           exact
           className="navLink"
           to="/products"
           activeStyle={{ backgroundColor: "#2b2d2e" }}
         >
-          <svg 
+          <svg
             xmlns="http://www.w3.org/2000/svg"
             className="nav-main__icon"
             height="24px"
@@ -153,13 +156,14 @@ const Sidebar = (props) => {
           </svg>
           Producten
         </NavLink>
+
         <NavLink
           exact
           className="navLink"
           to="/products/export"
           activeStyle={{ backgroundColor: "#2b2d2e" }}
         >
-          <svg 
+          <svg
             xmlns="http://www.w3.org/2000/svg"
             enable-background="new 0 0 24 24"
             className="nav-main__icon"
@@ -185,7 +189,7 @@ const Sidebar = (props) => {
           value="communicatie"
           onClick={(e) => filterHandler(e.target.value)}
         >
-          <svg 
+          <svg
             xmlns="http://www.w3.org/2000/svg"
             className="nav-main__icon"
             height="24px"
@@ -203,7 +207,7 @@ const Sidebar = (props) => {
           value="ergonomie"
           onClick={(e) => filterHandler(e.target.value)}
         >
-          <svg 
+          <svg
             xmlns="http://www.w3.org/2000/svg"
             className="nav-main__icon"
             enable-background="new 0 0 24 24"
@@ -230,7 +234,7 @@ const Sidebar = (props) => {
           value="kabel"
           onClick={(e) => filterHandler(e.target.value)}
         >
-          <svg 
+          <svg
             xmlns="http://www.w3.org/2000/svg"
             className="nav-main__icon"
             enable-background="new 0 0 24 24"
@@ -255,7 +259,7 @@ const Sidebar = (props) => {
           value="print"
           onClick={(e) => filterHandler(e.target.value)}
         >
-          <svg 
+          <svg
             xmlns="http://www.w3.org/2000/svg"
             className="nav-main__icon"
             height="24px"
@@ -273,7 +277,7 @@ const Sidebar = (props) => {
           value="randapparatuur"
           onClick={(e) => filterHandler(e.target.value)}
         >
-          <svg 
+          <svg
             xmlns="http://www.w3.org/2000/svg"
             className="nav-main__icon"
             height="24px"
@@ -291,7 +295,7 @@ const Sidebar = (props) => {
           value="werkplek"
           onClick={(e) => filterHandler(e.target.value)}
         >
-          <svg 
+          <svg
             xmlns="http://www.w3.org/2000/svg"
             className="nav-main__icon"
             height="24px"
@@ -308,6 +312,58 @@ const Sidebar = (props) => {
 
       <div className="botNav" id="botNav">
         <NavLink
+          exact
+          className="navLink"
+          to="/users/add"
+          activeStyle={{ backgroundColor: "#2b2d2e" }}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            enable-background="new 0 0 24 24"
+            className="nav-main__icon"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#FFFFFF"
+          >
+            <g>
+              <rect fill="none" height="24" width="24" />
+            </g>
+            <g>
+              <g>
+                <path d="M19,13h-6v6h-2v-6H5v-2h6V5h2v6h6V13z" />
+              </g>
+            </g>
+          </svg>
+          Gebruikers
+        </NavLink>
+        <NavLink
+          exact
+          className="navLink"
+          to="/products/add"
+          activeStyle={{ backgroundColor: "#2b2d2e" }}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            enable-background="new 0 0 24 24"
+            className="nav-main__icon"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#FFFFFF"
+          >
+            <g>
+              <rect fill="none" height="24" width="24" />
+            </g>
+            <g>
+              <g>
+                <path d="M19,13h-6v6h-2v-6H5v-2h6V5h2v6h6V13z" />
+              </g>
+            </g>
+          </svg>
+          Producten
+        </NavLink>
+        <NavLink
           className="navLink"
           to="#"
           onClick={() =>
@@ -316,7 +372,7 @@ const Sidebar = (props) => {
               .then(() => logOut())
           }
         >
-          <svg 
+          <svg
             xmlns="http://www.w3.org/2000/svg"
             className="nav-main__icon"
             width="24"

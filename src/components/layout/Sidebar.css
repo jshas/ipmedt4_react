@@ -14,26 +14,29 @@
 }
 
 .adminNav{
-  margin-top: 1rem;
-  height: 30%;
+  margin-top: 2rem;
+  margin-bottom: 4.339rem;
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
   flex-flow: column; 
+  padding-bottom: 2rem;
 }
 
 .catNav {
   display: flex;
   flex-flow: column nowrap;
-  gap: 2rem;
-  width: 100%; 
+  gap: 1.5rem;
+  padding-bottom: 2rem;
 }
 
 .headerNav{
   background-color: #ffb900;
-  padding: 1.5rem;
-  padding-right: 2rem;
-  padding-left: 2rem;
+  padding: 2rem;
+
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .nav-main__dropdown{
@@ -48,8 +51,9 @@
   background: transparent;
   border: 0px solid transparent;
   font-size: 2.4rem;
+  width: 90%;
   text-align: left;
-  padding: 0px;
+  /* padding: 0px; */
 }
 
 .navLink, .catNav__filterButton {
@@ -82,24 +86,30 @@
 }
 
 
-.botNav {
+.botNav{
     position: absolute;
-
     width: 100%;
-    bottom: 0;
-
+    bottom: 2rem;
 }
+
+.botNav > .navLink:not(:last-child){
+  margin-bottom: 1.5rem;
+}
+
+.botNav > .navLink:last-child{
+  margin-top: 5rem;
+}
+
+
 
 @media only screen and (max-width: 45rem){
   .nav{
     padding-bottom: 66.5px;
     position: relative;  /* ik heb 4 uur lang gebprobeerd om mobile goed te stylen, we gaan het lekker onder elkaar zetten, daarom staat dit hier nu*/
-
   }
 
   .nav{
     height: 5rem;
-    transition: 0.2s height linear;
   }
   .catNav{
     display: none;  
@@ -116,9 +126,22 @@
 
 }
 
-@media only screen and (max-height: 790px){
+@media only screen and (max-height: 400px){
   .navLink, .catNav__filterButton{
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin: 1rem 0;
+
+  
   }
+
+  .adminNav{
+    gap: 1;
+
+  }
+
+  .catNav{
+    gap: 1;
+
+  }
+  
+
 }
