@@ -14,12 +14,26 @@ import AddProducts from "./components/layout/AddProducts";
 /* CSS imports */
 import "./App.css";
 
+//sorteren op category
 const App = (props) => {
     const [activeFilters, setActiveFilters] = useState([]);
 
     const filterHandler = (e) => {
+        let i;
         setActiveFilters([...activeFilters, e]);
         console.log(activeFilters);
+
+        if(activeFilters.includes(e)){
+            let tempArray = []; 
+
+            for(i = 0; i < activeFilters.length; i++){
+
+                if(activeFilters[i] !== e){
+                    tempArray.push(e);
+                }
+            }
+            console.log("array: ", tempArray);
+        }
     }
 
 

@@ -14,7 +14,6 @@ const Sidebar = (props) => {
 
   console.log("Filter state:", props.activeFilters);
 
-
   const filterHandler = (e) =>{
     props.filterHandler(e);
   }
@@ -68,10 +67,10 @@ const Sidebar = (props) => {
 
     </div>
     <section className="catNav" id="catNav">
-        <button value="communicatie" onClick={(e) => filterHandler(e.target.value)} activeStyle={{backgroundColor: "#2b2d2e"}}>
-          <svg xmlns="http://www.w3.org/2000/svg" className="nav-main__icon" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF"><path d="M0 0h24v24H0z" fill="none"/><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-          Communicatie
-        </button>
+      <button value="communicatie" onClick={(e) => filterHandler(e.target.value)} activeStyle={{backgroundColor: "#2b2d2e"}}>
+        <svg xmlns="http://www.w3.org/2000/svg" className="nav-main__icon" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF"><path d="M0 0h24v24H0z" fill="none"/><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        Communicatie
+      </button>
       <button value="ergonomie" onClick={(e) => filterHandler(e.target.value)} activeStyle={{backgroundColor: "#2b2d2e"}}>
         <svg xmlns="http://www.w3.org/2000/svg" className="nav-main__icon" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#ffffff"><g><rect fill="none" height="24" width="24" x="0"/></g><g><g><g><path d="M4,18v3h3v-3h10v3h3v-6H4V18z M19,10h3v3h-3V10z M2,10h3v3H2V10z M17,13H7V5c0-1.1,0.9-2,2-2h6c1.1,0,2,0.9,2,2V13z"/></g></g></g></svg>
         Ergonomie

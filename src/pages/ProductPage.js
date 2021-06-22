@@ -17,8 +17,6 @@ const ProductPage = (props) => {
   const [productsList, setProductsList] = useState([]);
   const [user, setUser] = useState(-1);
 
-  console.log(props.activeFilters);
-
     // GET: Fetches Products from laravel API into the ProductsList state variable
     useEffect(() => {
       api()
@@ -79,7 +77,7 @@ const ProductPage = (props) => {
   // Mapping of fetched API products to list.
   const products = productsList.map((product) => {
     return (
-      <li className="u-list-style-none" key={product.id.toString() } style={{display: "block"}}>
+      <li className="u-list-style-none productItem" key={product.id.toString() } style={{display: "block"}}>
         <ProductCard
           key={product.key}
           product={product}
@@ -97,30 +95,32 @@ const ProductPage = (props) => {
     return product.inCart === true;
   });
 
+
+  //gives the ability to search using the searchbar
   const SearchSort = () => {
-    var searchInput = document.getElementById("searchInput");
-    var filter = searchInput.value.toUpperCase().split(" ");
-    var i;
+    let searchInput = document.getElementById("searchInput");
+    let filter = searchInput.value.toUpperCase().split(" ");
+    let i;
     console.log(filter);
     for(i = 1; i < products.length; i++){
-      var currentProduct = products[i].props.children.props.product;
+      let currentProduct = products[i].props.children.props.product;
       
-      var prodBrand = currentProduct.brand.toUpperCase();
-      var prodCat = currentProduct.category.toUpperCase();
-      var prodDescription = currentProduct.description.toUpperCase();
-      var prodModel = currentProduct.model.toUpperCase();
-      var prodSubCategory = currentProduct.sub_category.toUpperCase();
+      let prodBrand = currentProduct.brand.toUpperCase();
+      let prodCat = currentProduct.category.toUpperCase();
+      let prodDescription = currentProduct.description.toUpperCase();
+      let prodModel = currentProduct.model.toUpperCase();
+      let prodSubCategory = currentProduct.sub_category.toUpperCase();
 
-      var j;
-      document.getElementsByClassName("u-list-style-none")[i].style.display = "none";
+      let j;
+      document.getElementsByClassName("productItem")[i].style.display = "none";
 
       for(j = 0; j < filter.length; j++){
         if(prodBrand.includes(filter[j]) || prodCat.includes(filter[j]) || prodDescription.includes(filter[j]) ||prodModel.includes(filter[j]) || prodSubCategory.includes(filter[j])){
-          document.getElementsByClassName("u-list-style-none")[i].style.display = "block";
-          var k;
+          document.getElementsByClassName("productItem")[i].style.display = "block";
+          let k;
           for(k = 0; k < filter.length; k++){
             if(!(prodBrand.includes(filter[k]) || prodCat.includes(filter[k]) || prodDescription.includes(filter[k]) ||prodModel.includes(filter[k]) || prodSubCategory.includes(filter[k]))){
-              document.getElementsByClassName("u-list-style-none")[i].style.display = "none";
+              document.getElementsByClassName("productItem")[i].style.display = "none";
               
             }
           }
@@ -128,6 +128,36 @@ const ProductPage = (props) => {
       }
     }
   }
+
+  //category navigation
+  const CatSort = () =>{
+    let i;
+    console.log("in function", props.activeFilters);
+
+    for(i = 0; i < products.length; i++){
+      let currentCategory = products[i].props.children.props.product.category.toUpperCase();
+      let j;
+
+      if(props.activeFilters.length !== 0){
+        document.getElementsByClassName("productItem")[i].style.display = "none";
+      }
+
+      for(j = 0; j < props.activeFilters.length; j++){
+        let catCheck = props.activeFilters[j].toUpperCase()
+        if(catCheck == currentCategory){
+          document.getElementsByClassName("productItem")[i].style.display = "block"
+        }
+      }
+      
+    }
+  }
+
+  let arrayCopy;
+  if(props.activeFilters !== arrayCopy){
+    CatSort();
+    arrayCopy = props.activeFilters;
+  }
+
 
   return (
     <>
