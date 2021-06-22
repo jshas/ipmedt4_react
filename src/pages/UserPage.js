@@ -23,9 +23,8 @@ class UserPage extends React.Component {
     }
 
     getUsers = () => {
-        const BASE_URL = "http://127.0.0.1:8000/api/users/";
         api()
-            .get(BASE_URL)
+            .get("/api/users/")
             .then((res) => {
                 // this.props.changeVideo(res.data.video);
                 // console.log(res.data[0].first_name);
