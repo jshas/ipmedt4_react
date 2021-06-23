@@ -1,5 +1,6 @@
 /* External imports */
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import { renderIntoDocument } from "react-dom/cjs/react-dom-test-utils.production.min";
 
 /* Internal imports */
 import OrderButton from "./OrderButton";
@@ -9,7 +10,7 @@ import "./ProductCard.css";
 
 const ProductCard = (props) => {
   const localhost = "http://127.0.0.1:8000/";
-  let orderInformation = "";
+  
 
   const inCartToggleHandler = () => {
     // {Props version}
@@ -19,26 +20,49 @@ const ProductCard = (props) => {
     props.updateCart(props.product.id, action);
   };
 
-  // const checkRule = () =>{
-  //   switch(props.rule.id){
-  //     case 1:
-  //       if(props.ordered  = 
-  //       break;
-  //     case 2:
-  //       //
-  //       break;
-  //     default:
-  //       if(props.ordered === 0){
-  //         orderInformation = "U heeft dit product niet eerder besteld."
-  //       }
-  //       else{
-  //         orderInformation = {"U heeft dit product: " + {props.ordered} + "keer eerder besteld."}
-  //       }
-        
-  //   }
-  // }
-
- 
+  const checkRule = () =>{
+    const rule = props.product.rule_id;
+      // 1 | Maximaal 1 per persoon. Goedkeuring van manager. |         NULL |           1 
+      if(rule === 1){
+        if(props.product.ordered  >= props.product.rule.total_limit){
+          const orderInformation = "U heeft het bestellimiet van 1 al bereikt.";
+          return orderInformation;
+        }
+      }
+      // 2 | Maximaal 10 per jaar.                            |           10 |        NULL
+      else if(rule ===2){
+        if (props.product.ordered >= props.product.rule.yearly_limit){
+          const orderInformation = "U heeft het bestellimiet van 10 al bereikt.";
+          return orderInformation;
+        }
+      }
+      //  3 | Maximaal 1 per jaar.                             |            1 |        NULL
+      else if (rule === 3){
+          if(props.product.ordered  >= props.product.rule.yearly_limit){
+            const orderInformation = "U heeft het bestellimiet van 1 al bereikt.";
+            return orderInformation;
+          }
+        }
+      //  4 | Maximaal 1 per jaar zonder goedkeuring.          |            1 |        NULL
+      else if(rule ===4){
+        if(props.product.ordered  >= props.product.rule.yearly_limit){
+          const orderInformation =  "U heeft het bestellimiet van 1 al bereikt";
+          return orderInformation;
+        }
+      }
+      // null | Het product heeft geen specifieke bestel regels.
+      else{
+        if(props.ordered === 0){
+          const orderInformation = "U heeft dit product niet eerder besteld."
+          return orderInformation;
+        }
+        else{
+          const orderInformation = "U heeft dit product: " + props.ordered + " keer eerder besteld.";
+          return orderInformation;
+        }
+      }
+  }
+  
 
   return (
     <article className="productCard">
@@ -66,28 +90,17 @@ const ProductCard = (props) => {
       </figure>
       <section className="productCard__textArea ">
         <p className="productCard__description">{props.product.description}</p>
-        
-        {/* This part conditionally renders the rule and the user amount ordered. */}
-        {props.product.rule !== null ? (
           <section className="productCard__orderInformation ">
             <p className="productCard__rule ">
-              {props.product.rule.description}
+              {props.product.rule ?
+              props.product.rule.description : 
+              "Geen bijzondere regels."
+              }
             </p>
             <p className="productCard__ordered ">
-              {props.ordered > 0
-                ? "Aantal keer besteld: " + props.ordered
-                : "U heeft dit product niet eerder besteld."}
+              {checkRule()}
             </p>
           </section>
-        ) : (
-          <section className="productCard__orderInformation ">
-            <p className="productCard__ordered ">
-              {props.ordered > 0
-                ? "Aantal keer besteld: " + props.ordered
-                : "U heeft dit product niet eerder besteld."}
-            </p>
-          </section>
-        )}
 
       </section>
       {/* The OrderButton component updates the productsList state (in the ProductsPage component) through callback functions.*/}

@@ -88,7 +88,16 @@ h3 {
 }
 
 @media only screen and (max-width: 45rem) {
+    .pageLayout {
+        grid-template-columns: 1fr;
+    }
     .Grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media only screen and (max-height: 45rem) {
+    .pageLayout {
         grid-template-columns: 1fr;
     }
 }

@@ -27,6 +27,14 @@
     }
 }
 
+@media only screen and (max-height: 45rem) {
+    .productGrid {
+        grid-column: 1 / 1;
+        max-width: 100%;
+        margin: 1rem 0;
+    }
+}
+
 .searchbar {
     grid-column: 1 / -1;
     grid-row: 1 / 2;

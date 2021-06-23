@@ -26,6 +26,7 @@ const ProductPage = (props) => {
                     product.inCart = false;
                     return product;
                 });
+                console.log(productData);
                 const userOrders = res.data[2];
                 // combinedData is a combination of the products and the user specific orders array.
 
@@ -41,6 +42,7 @@ const ProductPage = (props) => {
                     }
                 });
                 setProductsList(productData);
+                // console.log(combinedData);
                 setUser(res.data[1]);
             })
             .catch((err) => {
