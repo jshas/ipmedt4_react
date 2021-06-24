@@ -6,24 +6,77 @@
 
 .productGrid {
     /* External grid values for the App.css grid */
+
     grid-column: 2 / span all;
     /* width: calc(100%-25rem);  */
 
     /* Internal grid values */
     display: grid;
     grid-template-columns: repeat(4, minmax(35rem, 1fr));
-    overflow-x: none;
 
+    width: 95%;
+    justify-self: center;
+    margin: 0 auto;
     gap: 2rem;
     margin: 5rem;
+    margin-top: 2rem;
     transition: 1s all;
+}
+
+
+.searchbar {
+    grid-column: 1 / -1;
+    grid-row: 1 / 2;
+    background-color: white;
+    height: 56px;
+    font-size: 28px;
+    padding-left: 10px;
+}
+
+.productGrid__shoppingCart {
+    min-width: 30rem;
+}
+
+
+@media only screen and (max-width: 110rem) {
+    .productGrid {
+        grid-template-columns: repeat(3, minmax(30rem, 1fr));
+        gap: 3rem;
+        width: 95%;
+    }
+
+    /* .searchbar{
+    grid-column: 1 / span 3; 
+  } */
+}
+
+@media only screen and (max-width: 90rem) {
+    .productGrid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3rem;
+
+    }
+
+    /* .searchbar{
+    grid-column: 1 / span 2; 
+  } */
+}
+
+@media only screen and (max-width: 50rem) {
+    .productGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .productGrid__shoppingCart {
+        min-width: 30rem;
+    }
 }
 
 @media only screen and (max-width: 45rem) {
     .productGrid {
-        grid-column: 1 / 1;
+        grid-column: 1 / -1;
         max-width: 100%;
-        margin: 1rem 0;
+        margin: 2rem 0;
     }
 }
 
@@ -35,43 +88,3 @@
     }
 }
 
-.searchbar {
-    grid-column: 1 / -1;
-    grid-row: 1 / 2;
-    background-color: white;
-    height: 56px;
-    font-size: 28px;
-    padding-left: 10px;
-}
-
-@media only screen and (max-width: 110rem) {
-    .productGrid {
-        grid-template-columns: repeat(3, minmax(30rem, 1fr));
-        gap: 2rem;
-    }
-
-    /* .searchbar{
-    grid-column: 1 / span 3; 
-  } */
-}
-
-@media only screen and (max-width: 85rem) {
-    .productGrid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
-    }
-
-    /* .searchbar{
-    grid-column: 1 / span 2; 
-  } */
-}
-
-@media only screen and (max-width: 80rem) {
-    .productGrid {
-        grid-template-columns: 1fr;
-    }
-
-    .productGrid__shoppingCart {
-        min-width: 30rem;
-    }
-}
