@@ -16,6 +16,10 @@ const ProductPage = (props) => {
     const [productsList, setProductsList] = useState([]);
     const [user, setUser] = useState(-1);
 
+    useEffect(() =>{
+        
+    },[props.activeFilters])
+
     // GET: Fetches Products from laravel API into the ProductsList state variable
     useEffect(() => {
         api()
@@ -157,9 +161,7 @@ const ProductPage = (props) => {
                 products[i].props.children.props.product.category.toUpperCase();
 
             if (props.activeFilters.length !== 0) {
-                document.getElementsByClassName("productItem")[
-                    i
-                ].style.display = "none";
+                document.getElementsByClassName("productItem")[i].style.display = "none";
             }
 
             for (let j = 0; j < props.activeFilters.length; j++) {
@@ -171,6 +173,15 @@ const ProductPage = (props) => {
                 }
             }
         }
+
+        if(props.activeFilters.length === 0){
+            for (let i = 0; i < products.length; i++) {
+                document.getElementsByClassName("productItem")[i].style.display = "block";
+
+            }
+
+        }
+
     }, [props.activeFilters, products]);
 
     return (
