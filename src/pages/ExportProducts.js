@@ -35,7 +35,7 @@ class ExportProducts extends React.Component {
     };
 
     changeOrderList = (value) => {
-        const BASE_URL_UPDATE = "http://127.0.0.1:8000/api/order/";
+        const BASE_URL_UPDATE = "api/order/";
         // console.log(value);
 
         if (value === "7 dagen") {
