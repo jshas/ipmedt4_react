@@ -21,7 +21,7 @@ const ShoppingCart = (props) => {
       setAnimationToggle(true);
       setTimeout(() => {
         setAnimationToggle(false);
-      }, 4000);
+      }, 2100);
     }
   }, [confirmationResponse]);
 

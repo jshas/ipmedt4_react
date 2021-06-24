@@ -193,23 +193,31 @@
 
 /* Used for confirmation  */
 .a-slideIn {
-  animation: slideInOut 3s ease-in 0s 1 normal forwards;
+  animation: slideInOut 2s linear 0s 1 normal forwards;
 }
 
 @keyframes slideInOut {
   0% {
     top: 100%;
   }
-  15% {
+  11% {
     top: 87.6%;
     opacity: 1;
   }
-  66% {
+  44%{
     top: 87.6%;
-    opacity: 0;
+    opacity: 1;
+  }
+  77%{
+    top: 87.6%;
+    opacity: 0.44;
+  }
+  88%{
+    top: 97.6%;
+    opacity: 0.1;
   }
   100% {
-    top: 87.6%;
+    top: 100%;
     opacity: 0;
   }
 }
