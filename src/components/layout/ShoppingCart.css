@@ -10,10 +10,8 @@
   box-shadow: 0.2rem 0.2rem 1rem 0.1rem rgba(0, 0, 0, 0.58);
   transition: 0.2s all;
   font-size: 2rem;
-
-  overflow-y: hide;
-
-  z-index: 112;
+  overflow: hidden;
+  z-index: 1;
   background-color: var(--c-white);
 }
 
@@ -24,35 +22,30 @@
   flex-flow: column nowrap;
   justify-content: center;
   align-items: start;
-  overflow: hidden;
 }
 
-.shoppingCart__header::after{
-  content: "Uw bestelling is voltooid. \2713";
-
+.shoppingCart__confirmationBox {
   position: absolute;
+  left: 0%;
+  top: 140%;
+  opacity: 0;
   display: flex;
   align-items: center;
   justify-content: center;
 
-  width: 95%;
-
-  height: 10rem;
-  background-color: rgba(10, 224, 160, 0.62);
+  width: 100%;
+  height: 12.4%;
+  background-color: rgba(24, 184, 123, 0.92);
   font-family: var(--font-family-heading);
-  font-weight: bold;
   font-size: 3rem;
   color: black;
-
-  animation-duration: 5s;
-  animation-timing-function: ease-in;
+  z-index: 1;
 }
 
 .shoppingCart__heading {
   font-size: 3rem;
   padding-left: 1rem;
   padding-top: 1rem;
-
 }
 
 .shoppingCart__heading::first-letter {
@@ -70,7 +63,7 @@
 /* <li> single cart row */
 
 /* cartRow -> Single row in the shoppingCart */
-.cartRow{
+.cartRow {
   background-color: var(--c-primary-bg);
   width: 90%;
   margin-left: auto;
@@ -80,17 +73,17 @@
   flex-flow: column nowrap;
 }
 
-.cartRow__header{
+.cartRow__header {
   width: 100%;
   font-size: 1.8rem;
   background-color: var(--c-secondary-bg);
 }
-.cartRow__heading{
-  color:var(--c-white);
+.cartRow__heading {
+  color: var(--c-white);
 
   padding-left: 1rem;
 }
-.cartRow__body{
+.cartRow__body {
   display: flex;
   flex-flow: row nowrap;
   gap: 2rem;
@@ -102,20 +95,17 @@
   width: 100%;
 }
 
-.cartRow__name{
+.cartRow__name {
   display: block;
   height: 2rem;
   width: 75%;
   font-size: 2rem;
 }
 
-.cartRow__price{
+.cartRow__price {
   align-self: flex-start;
   width: 25%;
-
 }
-
-
 
 /* Buttons Section */
 .buttons {
@@ -173,9 +163,11 @@
 .button--reset {
   background-color: var(--c-cancel-button);
 }
+
 .button--reset:hover {
   background-color: var(--c-cancel-button-hover);
 }
+
 .button--confirmation {
   background-color: var(--c-confirmation-button);
 }
@@ -184,7 +176,7 @@
   background-color: var(--c-confirmation-button-hover);
 }
 
-.cartRow__button{
+.cartRow__button {
   width: 100%;
   height: 15%;
   padding: 1rem;
@@ -199,12 +191,25 @@
   width: 90%;
 }
 
+/* Used for confirmation  */
+.a-slideIn {
+  animation: slideInOut 3s ease-in 0s 1 normal forwards;
+}
+
 @keyframes slideInOut {
-  0%{opacity: 0; top: -5rem;}
-
-  10%{opacity: 1; top: 5rem;}
-
-  90%{opacity: 0.5; top: -3rem;}
-
-  100%{opacity: 0; top: 5rem;}
+  0% {
+    top: 100%;
+  }
+  15% {
+    top: 87.6%;
+    opacity: 1;
+  }
+  66% {
+    top: 87.6%;
+    opacity: 0;
+  }
+  100% {
+    top: 87.6%;
+    opacity: 0;
+  }
 }

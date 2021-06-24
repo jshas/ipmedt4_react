@@ -10,6 +10,7 @@ const ProductCard = (props) => {
   const localhost = "http://127.0.0.1:8000/";
   const [orderStatus, setOrderStatus] = useState([]);
 
+
   const inCartToggleHandler = () => {
     // {Props version}
     // This is passed on to the parent component
@@ -18,11 +19,9 @@ const ProductCard = (props) => {
     props.updateCart(props.product.id, action);
   };
 
-
   useEffect(() =>{
     checkRule();
   }, [])
-
 
   // checkRule changes the productCards in two ways:
   // 1) Changes the order information text based on order history and this product's order rule.
@@ -71,7 +70,6 @@ const ProductCard = (props) => {
         break;
       // null | Het product heeft geen specifieke bestel regels.
       default:
-        console.log(props.product.id + "default");
         setOrderStatus(["U heeft het product " + props.product.ordered + " keer besteld.", true]);
     }
     if(ruleBroken === false){
@@ -122,7 +120,6 @@ const ProductCard = (props) => {
             }
           >
             {orderStatus[0]}
-
           </p>
         </section>
       </section>
