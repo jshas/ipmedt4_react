@@ -128,14 +128,24 @@
     height: 50%;   
     background-color: var(--c-primary-bg);
 }
+.productCard__ordered--disabled{
 
-
+    background-color: var(--c-accent-red);
+    color: white;
+}
 
 .productCard__buttons{
     position: absolute;
     height: 10%;
     width: 100%;
     bottom: 0;
+}
+
+.productCard__disabled{
+    background-color: var(--c-disabled-button);
+    font-family: var(--font-family-heading);
+    width: 100%;
+    height: 100%
 }
 
 .u-flex-column-center{

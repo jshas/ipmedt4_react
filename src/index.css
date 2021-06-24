@@ -23,6 +23,7 @@
     /* --c-cancel-button-hover: #da4c4c; */
     --c-cancel-button: #f43636;
     --c-cancel-button-hover: #d46363;
+    --c-disabled-button: #ddd;
 
     /* Kleurenpalet uit de styleguide */
     --c-black: #000;

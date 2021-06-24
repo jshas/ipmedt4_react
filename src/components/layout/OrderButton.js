@@ -18,9 +18,9 @@ const OrderButton = (props) => {
   const hoverHandler = (currentButton, action) =>{
     switch (action){
       case 'enter':
-        // A short delay is added to accommodate the color transition on hover.
-        setButtonText("Product verwijderen?");
+          setButtonText("Product verwijderen?");
         break;
+        // A short delay is added to accommodate the color transition on hover.
       case 'leave':
         setButtonText("Product toegevoegd");
         break;
@@ -32,7 +32,7 @@ const OrderButton = (props) => {
 
   return (
     <>    
-    {props.incart 
+    {props.inCart 
     ? (
         <button
           type="button"
