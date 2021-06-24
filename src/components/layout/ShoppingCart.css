@@ -18,11 +18,34 @@
 }
 
 .shoppingCart__header {
+  position: relative;
   height: 10%;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
   align-items: start;
+  overflow: hidden;
+}
+
+.shoppingCart__header::after{
+  content: "Uw bestelling is voltooid. \2713";
+
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 95%;
+
+  height: 10rem;
+  background-color: rgba(10, 224, 160, 0.62);
+  font-family: var(--font-family-heading);
+  font-weight: bold;
+  font-size: 3rem;
+  color: black;
+
+  animation-duration: 5s;
+  animation-timing-function: ease-in;
 }
 
 .shoppingCart__heading {
@@ -117,10 +140,8 @@
   display: flex;
   align-items: center;
 
-
   font-family: var(--font-family-heading);
   font-size: 1.8rem;
-
   justify-content: center;
 
   background-color: var(--c-primary-button);
@@ -158,6 +179,7 @@
 .button--confirmation {
   background-color: var(--c-confirmation-button);
 }
+
 .button--confirmation:hover {
   background-color: var(--c-confirmation-button-hover);
 }
@@ -175,4 +197,14 @@
   background-color: var(--c-accent-red);
   height: 2rem;
   width: 90%;
+}
+
+@keyframes slideInOut {
+  0%{opacity: 0; top: -5rem;}
+
+  10%{opacity: 1; top: 5rem;}
+
+  90%{opacity: 0.5; top: -3rem;}
+
+  100%{opacity: 0; top: 5rem;}
 }

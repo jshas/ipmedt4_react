@@ -15,10 +15,7 @@ const ProductPage = (props) => {
     // State: Data
     const [productsList, setProductsList] = useState([]);
     const [user, setUser] = useState(-1);
-
-    useEffect(() =>{
-        
-    },[props.activeFilters])
+    const [orderCount, setOrderCount] = useState(0);
 
     // GET: Fetches Products from laravel API into the ProductsList state variable
     useEffect(() => {
@@ -45,14 +42,18 @@ const ProductPage = (props) => {
                         return product;
                     }
                 });
-                setProductsList(productData);
+                setProductsList(combinedData);
                 // console.log(combinedData);
                 setUser(res.data[1]);
             })
             .catch((err) => {
                 console.log(err);
             });
-    }, []);
+    }, [orderCount]);
+
+    const updateOrderCount = () =>{
+        setOrderCount(orderCount => {return orderCount + 1});
+    }
 
     // Sends productId to add or remove function based on supplied action parameter from the ProductCard component
     const updateCart = (productId, action) => {
@@ -85,7 +86,7 @@ const ProductPage = (props) => {
                 style={{ display: "block" }}
             >
                 <ProductCard
-                    key={product.key}
+                    key={product.id}
                     product={product}
                     updateCart={(productId, action) =>
                         updateCart(productId, action)
@@ -154,7 +155,6 @@ const ProductPage = (props) => {
     };
 
     //category navigation
-
     useEffect(() => {
         for (let i = 0; i < products.length; i++) {
             let currentCategory =
@@ -196,6 +196,7 @@ const ProductPage = (props) => {
                 />
                 <li className="u-list-style-none productGrid__shoppingCart">
                     <ShoppingCart
+                        updateOrderCount={() => {updateOrderCount()}}
                         userId={user}
                         cartItems={cartItems}
                         resetCart={() => updateCart(undefined, "reset")}

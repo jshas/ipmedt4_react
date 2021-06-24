@@ -19,6 +19,12 @@ const ShoppingCart = (props) => {
   //TODO: Responses weergeven na bevestigen order
   const [confirmationResponse, setConfirmationResponse] = useState([]);
 
+  const orderAnimation = () =>{
+    document.getElementById
+
+
+  }
+
   const productRows = props.cartItems.map((item) => {
     return (
       <li className="u-list-style-none" key={item.id.toString()}>
@@ -65,6 +71,9 @@ const ShoppingCart = (props) => {
               setConfirmationResponse(response.data);
               console.log([...confirmationResponse]);
               props.resetCart();
+              props.updateOrderCount();   
+              orderAnimation();
+
             },
             (error) => {
               console.log("Posten van de order:", error);

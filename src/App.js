@@ -18,6 +18,8 @@ import "./App.css";
 const App = () => {
   const [activeFilters, setActiveFilters] = useState([]);
 
+  
+
   const filterHandler = (clickedFilter) => {
     if (clickedFilter !== undefined) {
       if (activeFilters.includes(clickedFilter)) {
