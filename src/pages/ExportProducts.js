@@ -35,8 +35,7 @@ class ExportProducts extends React.Component {
     };
 
     changeOrderList = (value) => {
-        const BASE_URL_UPDATE = "http://127.0.0.1:8000/api/order/";
-        // console.log(value);
+        const BASE_URL_UPDATE = "/api/order/";
 
         if (value === "7 dagen") {
             api()
@@ -165,7 +164,7 @@ class ExportProducts extends React.Component {
                     <li>
                         <label
                             className="exportProducts__label"
-                            for="orderFilters"
+                            htmlFor="orderFilters"
                         >
                             Selecteer periode:
                         </label>
