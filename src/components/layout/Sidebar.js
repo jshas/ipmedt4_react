@@ -11,6 +11,7 @@ import api from "../../util/api";
 const Sidebar = (props) => {
     const [showMenu, setShowMenu] = useState(0);
 
+
     const menuToggle = () => {
         if (showMenu === 0) {
             document.getElementById("logoJ").style.display = "";
@@ -183,7 +184,9 @@ const Sidebar = (props) => {
 
             <section className="catNav" id="catNav">
                 <button
-                    className="catNav__filterButton"
+                    className={props.activeFilters.includes("communicatie") 
+                    ? "catNav__filterButton catNav__filterButton--active" 
+                    : "catNav__filterButton" }
                     value="communicatie"
                     onClick={(e) => filterHandler(e.target.value)}
                 >
@@ -193,16 +196,18 @@ const Sidebar = (props) => {
                         height="24px"
                         viewBox="0 0 24 24"
                         width="24px"
-                        fill="#FFFFFF"
+                        fill={props.activeFilters.includes("communicatie") ?  "#000" : "#fff"}
                     >
                         <path d="M0 0h24v24H0z" fill="none" />
                         <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
                     </svg>
                     Communicatie
                 </button>
+
                 <button
-                    className="catNav__filterButton"
-                    value="ergonomie"
+                    className={props.activeFilters.includes("ergonomie") 
+                    ? "catNav__filterButton catNav__filterButton--active" 
+                    : "catNav__filterButton" }                    value="ergonomie"
                     onClick={(e) => filterHandler(e.target.value)}
                 >
                     <svg
@@ -212,7 +217,7 @@ const Sidebar = (props) => {
                         height="24px"
                         viewBox="0 0 24 24"
                         width="24px"
-                        fill="#ffffff"
+                        fill={props.activeFilters.includes("ergonomie") ?  "#000" : "#fff"}
                     >
                         <g>
                             <rect fill="none" height="24" width="24" x="0" />
@@ -228,7 +233,9 @@ const Sidebar = (props) => {
                     Ergonomie
                 </button>
                 <button
-                    className="catNav__filterButton"
+                    className={props.activeFilters.includes("kabel") 
+                    ? "catNav__filterButton catNav__filterButton--active" 
+                    : "catNav__filterButton" }                    
                     value="kabel"
                     onClick={(e) => filterHandler(e.target.value)}
                 >
@@ -239,7 +246,7 @@ const Sidebar = (props) => {
                         height="24px"
                         viewBox="0 0 24 24"
                         width="24px"
-                        fill="#FFFFFF"
+                        fill={props.activeFilters.includes("kabel") ?  "#000" : "#fff"}
                     >
                         <g>
                             <path d="M0,0h24v24H0V0z" fill="none" />
@@ -253,7 +260,9 @@ const Sidebar = (props) => {
                     Kabel
                 </button>
                 <button
-                    className="catNav__filterButton"
+                    className={props.activeFilters.includes("print") 
+                    ? "catNav__filterButton catNav__filterButton--active" 
+                    : "catNav__filterButton" }
                     value="print"
                     onClick={(e) => filterHandler(e.target.value)}
                 >
@@ -263,7 +272,7 @@ const Sidebar = (props) => {
                         height="24px"
                         viewBox="0 0 24 24"
                         width="24px"
-                        fill="#FFFFFF"
+                        fill={props.activeFilters.includes("print") ?  "#000" : "#fff"}
                     >
                         <path d="M0 0h24v24H0z" fill="none" />
                         <path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z" />
@@ -271,8 +280,9 @@ const Sidebar = (props) => {
                     Print
                 </button>
                 <button
-                    className="catNav__filterButton"
-                    value="randapparatuur"
+                    className={props.activeFilters.includes("randapparatuur") 
+                    ? "catNav__filterButton catNav__filterButton--active" 
+                    : "catNav__filterButton" }
                     onClick={(e) => filterHandler(e.target.value)}
                 >
                     <svg
@@ -280,8 +290,7 @@ const Sidebar = (props) => {
                         className="nav-main__icon"
                         height="24px"
                         viewBox="0 0 24 24"
-                        width="24px"
-                        fill="#FFFFFF"
+                        fill={props.activeFilters.includes("randapparatuur") ?  "#000" : "#fff"}
                     >
                         <path d="M20 5H4c-1.1 0-1.99.9-1.99 2L2 17c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm-9 3h2v2h-2V8zm0 3h2v2h-2v-2zM8 8h2v2H8V8zm0 3h2v2H8v-2zm-1 2H5v-2h2v2zm0-3H5V8h2v2zm9 7H8v-2h8v2zm0-4h-2v-2h2v2zm0-3h-2V8h2v2zm3 3h-2v-2h2v2zm0-3h-2V8h2v2z" />
                         <path d="M0 0h24v24H0zm0 0h24v24H0z" fill="none" />
@@ -289,7 +298,9 @@ const Sidebar = (props) => {
                     Randapperatuur
                 </button>
                 <button
-                    className="catNav__filterButton"
+                    className={props.activeFilters.includes("werkplek") 
+                    ? "catNav__filterButton catNav__filterButton--active" 
+                    : "catNav__filterButton" }
                     value="werkplek"
                     onClick={(e) => filterHandler(e.target.value)}
                 >
@@ -299,7 +310,7 @@ const Sidebar = (props) => {
                         height="24px"
                         viewBox="0 0 24 24"
                         width="24px"
-                        fill="#FFFFFF"
+                        fill= {props.activeFilters.includes("werkplek") ?  "#000" :  "#fff" }
                     >
                         <path d="M0 0h24v24H0z" fill="none" />
                         <path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z" />
