@@ -49,7 +49,7 @@
 }
 
 .shoppingCart__heading::first-letter {
-  color: var(--c-accent-red);
+  color: var(--c-yellow);
 }
 
 /* <ul> container for .shoppingCart__rows */
@@ -76,7 +76,7 @@
 .cartRow__header {
   width: 100%;
   font-size: 1.8rem;
-  background-color: var(--c-secondary-bg);
+  background-color: var(--c-yellow);
 }
 .cartRow__heading {
   color: var(--c-white);
@@ -149,7 +149,7 @@
 }
 
 .button:disabled {
-  color: var(--c-primary-button-disabled);
+  color: var(--c-disabled);
 }
 
 .button:hover {
@@ -186,35 +186,28 @@
 .u-separator {
   content: "";
   display: block;
-  background-color: var(--c-accent-red);
+  background-color: var(--c-primary-button);
   height: 2rem;
   width: 90%;
 }
 
 /* Used for confirmation  */
 .a-slideIn {
-  animation: slideInOut 2s linear 0s 1 normal forwards;
+  animation: slideInOut 2.5s linear 0s 1 normal forwards;
 }
 
 @keyframes slideInOut {
   0% {
     top: 100%;
+    opacity: 0.5;
   }
-  11% {
+  50%{
     top: 87.6%;
     opacity: 1;
   }
-  44%{
+  60%{
     top: 87.6%;
     opacity: 1;
-  }
-  77%{
-    top: 87.6%;
-    opacity: 0.44;
-  }
-  88%{
-    top: 97.6%;
-    opacity: 0.1;
   }
   100% {
     top: 100%;

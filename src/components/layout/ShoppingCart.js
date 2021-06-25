@@ -21,7 +21,7 @@ const ShoppingCart = (props) => {
       setAnimationToggle(true);
       setTimeout(() => {
         setAnimationToggle(false);
-      }, 2100);
+      }, 2600);
     }
   }, [confirmationResponse]);
 
@@ -113,6 +113,7 @@ const ShoppingCart = (props) => {
         </ul>
         <section className="buttons">
           <button
+
             className="button"
             // onClick={() => {if(window.confirm("Weet u zeker dat u klaar bent met uw aanvraag?")){orderItems}}
             onClick={orderItems}
