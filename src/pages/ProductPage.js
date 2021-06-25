@@ -27,7 +27,6 @@ const ProductPage = (props) => {
                     product.inCart = false;
                     return product;
                 });
-                console.log(productData);
                 const userOrders = res.data[2];
                 // combinedData is a combination of the products and the user specific orders array.
 
@@ -43,7 +42,6 @@ const ProductPage = (props) => {
                     }
                 });
                 setProductsList(combinedData);
-                // console.log(combinedData);
                 setUser(res.data[1]);
             })
             .catch((err) => {
@@ -108,7 +106,6 @@ const ProductPage = (props) => {
         let searchInput = document.getElementById("searchInput");
         let filter = searchInput.value.toUpperCase().split(" ");
         let i;
-        console.log(filter);
         for (i = 0; i < products.length; i++) {
             let currentProduct = products[i].props.children.props.product;
 

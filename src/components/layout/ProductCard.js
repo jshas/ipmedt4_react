@@ -15,7 +15,6 @@ const ProductCard = (props) => {
     // {Props version}
     // This is passed on to the parent component
     let action = props.inCart ? "remove" : "add"; // If the product is inCart send a remove message.
-    console.log(props.product.id, action);
     props.updateCart(props.product.id, action);
   };
 
@@ -143,5 +142,3 @@ const ProductCard = (props) => {
 
 export default ProductCard;
 
-// Code written to send update action from productCard.
-// Current code checks the inCart value passed to productpage and updates there.

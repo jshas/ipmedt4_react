@@ -19,9 +19,9 @@ const ShoppingCart = (props) => {
   useEffect(() => {
     if (confirmationResponse.length > 0) {
       setAnimationToggle(true);
-      setTimeout(() => {
-        setAnimationToggle(false);
-      }, 2600);
+      // setTimeout(() => {
+      //   setAnimationToggle(false);
+      // }, 2600);
     }
   }, [confirmationResponse]);
 
@@ -98,7 +98,7 @@ const ShoppingCart = (props) => {
               ? "shoppingCart__confirmationBox a-slideIn"
               : "shoppingCart__confirmationBox"
           }
-          onanimationend={() => {
+          onAnimationEnd={() => {
             setAnimationToggle(false);
           }}
         >
