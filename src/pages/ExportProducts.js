@@ -23,9 +23,9 @@ class ExportProducts extends React.Component {
         api()
             .get("/api/order/7dagen")
             .then((res) => {
-                // console.log(res.data[0].price);
+             
                 this.setState({ orderList: res.data });
-                // console.log(this.state.orderList);
+
             });
     };
 
@@ -72,7 +72,7 @@ class ExportProducts extends React.Component {
         let yyyy = today.getFullYear();
 
         today = dd + "/" + mm + "/" + yyyy;
-        // console.log(today);
+
 
         var data = this.state.orderList;
 
@@ -118,7 +118,6 @@ class ExportProducts extends React.Component {
             csv += data[i].created_at;
 
             csv += "\n";
-            // console.log(data[i].price/100);
             // sub_category model brand category quantity price/100 first_name last_name created_at
         }
 

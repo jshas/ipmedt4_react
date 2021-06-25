@@ -14,10 +14,6 @@ class UserPage extends React.Component {
     state = { userList: [] };
     users = [];
 
-    UserButtonClicked = (id) => {
-        console.log("je klikt op knop " + id);
-    };
-
     componentDidMount() {
         this.getUsers();
     }
@@ -26,11 +22,7 @@ class UserPage extends React.Component {
         api()
             .get("/api/users/")
             .then((res) => {
-                // this.props.changeVideo(res.data.video);
-                // console.log(res.data[0].first_name);
                 this.setState({ userList: res.data });
-
-                // console.log(this.state.userList[0].id);
             });
     };
 

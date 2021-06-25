@@ -1,5 +1,6 @@
 /* External imports */
 import React, { useState, useEffect } from "react";
+
 import { Switch, Route } from "react-router-dom";
 
 /* Internal imports */
@@ -25,16 +26,12 @@ const App = () => {
           (filter) => filter !== clickedFilter
         );
         setActiveFilters(newArray);
-        // setActiveFilters(newArray);
+
       } else {
         setActiveFilters([...activeFilters, clickedFilter]);
       }
     }
   };
-
-  useEffect(() => {
-    console.log("Active Filter:", activeFilters);
-  }, [activeFilters]);
 
   return (
     <Switch>

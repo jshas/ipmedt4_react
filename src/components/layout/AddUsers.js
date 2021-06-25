@@ -20,31 +20,6 @@ const AddUsers = () => {
         department: "",
     });
 
-    // const [departments, setDepartments] = useState([]);
-    // const [roles, setRoles] = useState([]);
-
-    // useEffect(() => {
-    //     api()
-    //         .get("/api/users/departments")
-    //         .then((res) => {
-    //             if (res.data.error) {
-    //                 console.log(res.data.error);
-    //             } else {
-    //                 setDepartments(res.data);
-    //             }
-    //         });
-
-    //     api()
-    //         .get("/api/users/roles")
-    //         .then((res) => {
-    //             if (res.data.error) {
-    //                 console.log(res.data.error);
-    //             } else {
-    //                 setRoles(res.data);
-    //             }
-    //         });
-    // }, []);
-
     const updateFormInput = (event) => {
         event.persist();
 
