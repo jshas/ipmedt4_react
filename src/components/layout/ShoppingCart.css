@@ -12,7 +12,7 @@
   font-size: 2rem;
   overflow: hidden;
   z-index: 1;
-  background-color: var(--c-white);
+
 }
 
 .shoppingCart__header {
@@ -22,8 +22,8 @@
   flex-flow: column nowrap;
   justify-content: center;
   align-items: start;
+  background-color: var(--c-tertiary-bg);
 }
-
 .shoppingCart__confirmationBox {
   position: absolute;
   left: 0%;
@@ -34,7 +34,7 @@
   justify-content: center;
 
   width: 100%;
-  height: 12.4%;
+  height: 10%;
   background-color: rgba(24, 184, 123, 0.92);
   font-family: var(--font-family-heading);
   font-size: 3rem;
@@ -46,18 +46,16 @@
   font-size: 3rem;
   padding-left: 1rem;
   padding-top: 1rem;
-}
-
-.shoppingCart__heading::first-letter {
   color: var(--c-yellow);
 }
+
 
 /* <ul> container for .shoppingCart__rows */
 .shoppingCart__body {
   overflow-y: scroll;
-  margin-top: 2rem;
   height: 77.7%;
-  border-bottom: 2rem solid var(--c-primary-bg);
+  border-bottom: 1rem solid transparent;
+  border-top: 1rem solid transparent;
 }
 
 /* <li> single cart row */
@@ -70,28 +68,28 @@
   margin-right: auto;
   margin-bottom: 2rem;
   display: flex;
+  background: var(--c-white);
   flex-flow: column nowrap;
 }
 
 .cartRow__header {
   width: 100%;
-  font-size: 1.8rem;
-  background-color: var(--c-yellow);
+  font-size: 1.4rem;
+  text-align: left;
+  background-color: var(--c-tertiary-bg);
 }
 .cartRow__heading {
-  color: var(--c-white);
-
-  padding-left: 1rem;
+  color: var(--c-yellow);
+  padding-left: 1rem ;
 }
 .cartRow__body {
   display: flex;
   flex-flow: row nowrap;
-  gap: 2rem;
   justify-content: space-between;
-  gap: 2rem;
+  gap: 1rem;
   align-items: start;
   margin: 4rem 0;
-  padding: 0 2rem;
+  padding: 0 1rem;
   width: 100%;
 }
 
@@ -105,36 +103,41 @@
 .cartRow__price {
   align-self: flex-start;
   width: 25%;
+
 }
+
+
 
 /* Buttons Section */
 .buttons {
   position: absolute;
   bottom: 0;
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: row nowrap;
+  gap: 0.5rem;
   justify-content: space-between;
-  background-color: var(--c-primary-bg);
-  width: 97%;
+  align-items: center;
+  background-color: var(--c-tertiary-bg);
+  width: 100%;
   height: 10%;
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
-  margin-bottom: 1rem;
+  padding: 0.5rem;
+
+
 }
 
 .button {
   height: 100%;
-  width: 49%;
-  padding: 1rem;
+  width: 100%;
   border: none;
   display: flex;
   align-items: center;
+  justify-content: center;
+  background-color: var(--c-primary-button);
 
   font-family: var(--font-family-heading);
   font-size: 1.8rem;
-  justify-content: center;
+  font-weight: bold;
 
-  background-color: var(--c-primary-button);
   transition: 0.2s transform ease-out;
   transition: 0.4s background-color linear;
 }
@@ -175,25 +178,25 @@
 .button--confirmation:hover {
   background-color: var(--c-confirmation-button-hover);
 }
-
-.cartRow__button {
+.button--cartRow {
   width: 100%;
   height: 15%;
   padding: 1rem;
 }
+
 
 /* Utility Classes */
 .u-separator {
   content: "";
   display: block;
   background-color: var(--c-primary-button);
-  height: 2rem;
+  height: 3rem;
   width: 90%;
 }
 
 /* Used for confirmation  */
 .a-slideIn {
-  animation: slideInOut 2.5s linear 0s 1 normal forwards;
+  animation: slideInOut 2s linear 0s 1 normal forwards;
 }
 
 @keyframes slideInOut {
@@ -201,12 +204,12 @@
     top: 100%;
     opacity: 0.5;
   }
-  50%{
-    top: 87.6%;
+  33%{
+    top: 90%;
     opacity: 1;
   }
-  60%{
-    top: 87.6%;
+  66%{
+    top: 90%;
     opacity: 1;
   }
   100% {

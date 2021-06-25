@@ -46,7 +46,7 @@ const ShoppingCart = (props) => {
             </p>
           </section>
           <button
-            className="button button--reset cartRow__button "
+            className="button button--cartRow button--reset"
             type="button"
             value={item.id}
             onClick={(event) => props.removeItem(event.currentTarget.value)}
